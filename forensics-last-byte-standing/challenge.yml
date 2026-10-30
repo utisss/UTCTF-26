@@ -1,0 +1,17 @@
+name: "Last Byte Standing"
+category: Forensics
+description: |
+  A midnight network capture from a remote office was marked “routine” and archived without review.
+  Hours later, incident response flagged it for one subtle anomaly that nobody could explain.
+  Find what was missed and recover the flag.
+author: Abhi
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{d1g_t0_th3_l4st_byt3}
+files:
+  - last-byte-standing.pcap

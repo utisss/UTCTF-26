@@ -1,0 +1,17 @@
+name: "Cold Workspace"
+category: Forensics
+description: |
+  A workstation in the design lab crashed during an overnight maintenance window.
+  By morning, a critical desktop artifact was gone and the user swore they never touched it.
+  You only have a memory snapshot from shortly before reboot. Recover what was lost.
+author: Abhi
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{m3m0ry_r3t41ns_wh4t_d1sk_l053s}
+files:
+  - cold-workspace.dmp

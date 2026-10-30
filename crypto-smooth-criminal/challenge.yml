@@ -1,0 +1,18 @@
+name: "Smooth Criminal"
+category: Cryptography
+description: |
+  Our cryptographer assured us that a 649-bit prime makes this completely unbreakable.
+  He also said the order of the group "doesn't really matter that much."
+  He no longer works here.
+  By Garv (@GarvK07 on discord)
+author: Garv
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{sm00th_cr1m1nal_caught}
+files:
+  - dlp.txt

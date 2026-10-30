@@ -1,0 +1,16 @@
+name: "Small Blind"
+category: Binary Exploitation
+description: |
+  Come play some poker!
+  You've got 500 chips and a shot to double up. The flag's behind a win condition, but a good poker player knows there's always more than one way to win.
+
+  By Caleb (@eden.caleb.a on discord)
+author: Caleb
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+connection_info: nc challenge.utctf.live 7255
+flags:
+  - utflag{counting_chars_not_cards}

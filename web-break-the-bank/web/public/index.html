@@ -1,0 +1,1490 @@
+<<<<<<< HEAD
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="description" content="First National Savings Bank - Online Banking">
+    <meta name="keywords" content="bank,savings,checking,online banking,secure,internet banking">
+    <title>First National Savings Bank - Welcome to Online Banking</title>
+    <style type="text/css">
+        /* =====================================================
+           FIRST NATIONAL SAVINGS BANK - STYLESHEET v1.0
+           Last updated: 03/14/1997
+           Webmaster: webmaster@fnsb.com
+        ===================================================== */
+
+        body {
+            background-color: #c0c0c0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23c0c0c0'/%3E%3Crect width='1' height='1' fill='%23b0b0b0' opacity='0.4'/%3E%3C/svg%3E");
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12px;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ---- TOP BANNER ---- */
+        .top-banner {
+            width: 100%;
+            background-color: #000080;
+            border-bottom: 3px solid #ffcc00;
+            padding: 0;
+        }
+
+        .banner-inner {
+            display: table;
+            width: 100%;
+        }
+
+        .banner-logo-cell {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 6px 12px;
+            width: 60%;
+        }
+
+        .banner-logo-cell img {
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .banner-title {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 2px 2px #000033;
+            vertical-align: middle;
+            letter-spacing: 1px;
+        }
+
+        .banner-subtitle {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #aaddff;
+            display: block;
+            margin-top: 2px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .banner-actions-cell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+            padding: 6px 12px;
+        }
+
+        .btn-login {
+            background-color: #ffcc00;
+            color: #000080;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px outset #ffee88;
+            padding: 4px 14px;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .btn-login:hover {
+            background-color: #ffe033;
+            border-style: inset;
+        }
+
+        /* ---- TICKER BAR ---- */
+        .ticker-bar {
+            background-color: #000033;
+            color: #00ff00;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 11px;
+            padding: 3px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 2px solid #000080;
+        }
+
+        .ticker-inner {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0%   { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* ---- NAV BAR ---- */
+        .navbar {
+            background-color: #000080;
+            border-bottom: 2px solid #000033;
+            padding: 0;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 14px;
+            border-right: 1px solid #3333aa;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar a:first-child { border-left: 1px solid #3333aa; }
+        .navbar a:hover { background-color: #3333cc; color: #ffcc00; }
+
+        /* ---- PAGE LAYOUT ---- */
+        .page-wrapper {
+            width: 780px;
+            margin: 10px auto;
+        }
+
+        /* ---- MAIN TABLE LAYOUT ---- */
+        .layout-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .sidebar {
+            width: 170px;
+            vertical-align: top;
+            padding-right: 8px;
+        }
+
+        .main-content {
+            vertical-align: top;
+            padding-left: 6px;
+        }
+
+        /* ---- SIDEBAR BOX ---- */
+        .sidebar-box {
+            background-color: #000080;
+            border: 2px solid #000033;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-box-title {
+            background-color: #000033;
+            color: #ffcc00;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #3333aa;
+        }
+
+        .sidebar-box-body {
+            padding: 6px;
+        }
+
+        .sidebar-box-body a {
+            display: block;
+            color: #aaddff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            text-decoration: none;
+            padding: 2px 0;
+            border-bottom: 1px dotted #3333aa;
+        }
+
+        .sidebar-box-body a:hover { color: #ffcc00; text-decoration: underline; }
+
+        .sidebar-rates {
+            color: #ffffff;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 11px;
+            padding: 4px;
+        }
+
+        .sidebar-rates table { width: 100%; }
+        .sidebar-rates td { padding: 1px 2px; }
+        .rate-green { color: #00ff66; font-weight: bold; }
+
+        /* ---- WELCOME PANEL ---- */
+        .welcome-panel {
+            background-color: #ffffff;
+            border: 2px inset #aaaaaa;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .welcome-panel-title {
+            background: linear-gradient(to right, #000080, #3333cc);
+            color: #ffcc00;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-bottom: 2px solid #ffcc00;
+        }
+
+        .welcome-panel-body {
+            padding: 10px 12px;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .welcome-panel-body h2 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 15px;
+            color: #000080;
+            margin: 0 0 6px 0;
+            border-bottom: 1px solid #aaaaaa;
+            padding-bottom: 3px;
+        }
+
+        /* ---- PRODUCTS TABLE ---- */
+        .products-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            margin-top: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .products-table th {
+            background-color: #000080;
+            color: #ffcc00;
+            padding: 4px 8px;
+            text-align: left;
+            border: 1px solid #000033;
+            font-size: 11px;
+        }
+
+        .products-table td {
+            padding: 4px 8px;
+            border: 1px solid #aaaaaa;
+        }
+
+        .products-table tr:nth-child(even) td { background-color: #dde8f0; }
+        .products-table tr:nth-child(odd) td  { background-color: #f0f4f8; }
+
+        .products-table a { color: #000080; }
+
+        /* ---- NEWS BOX ---- */
+        .news-box {
+            background-color: #fffff0;
+            border: 2px inset #aaaaaa;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            font-size: 11px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .news-box h3 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 13px;
+            color: #990000;
+            margin: 0 0 6px 0;
+            border-bottom: 1px solid #cccccc;
+            padding-bottom: 2px;
+        }
+
+        .news-item {
+            padding: 3px 0;
+            border-bottom: 1px dotted #cccccc;
+            color: #333333;
+        }
+
+        .news-date {
+            color: #999999;
+            font-size: 10px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .news-item a { color: #000080; }
+
+        /* ---- SECURITY BANNER ---- */
+        .security-strip {
+            background-color: #006600;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            text-align: center;
+            padding: 3px;
+            border: 1px solid #004400;
+            margin-bottom: 8px;
+        }
+
+        /* ---- MARQUEE STRIP ---- */
+        .promo-strip {
+            background-color: #ffcc00;
+            color: #000080;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 6px;
+            border: 1px solid #cc9900;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        /* ---- FOOTER ---- */
+        .footer {
+            background-color: #000033;
+            color: #aaaaaa;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            text-align: center;
+            padding: 8px;
+            border-top: 2px solid #000080;
+            margin-top: 14px;
+        }
+
+        .footer a { color: #aaddff; }
+
+        /* ---- UNDER CONSTRUCTION ---- */
+        .construction {
+            display: inline-block;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #990000;
+            font-weight: bold;
+        }
+
+        /* ---- BLINK ---- */
+        .blink {
+            animation: blinker 1s step-start infinite;
+        }
+
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* ---- VISITOR COUNTER ---- */
+        .counter-box {
+            text-align: center;
+            background-color: #000033;
+            border: 2px inset #aaaaaa;
+            padding: 4px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 10px;
+            color: #00ff00;
+        }
+
+        /* horizontal rule styling */
+        hr.fancy {
+            border: none;
+            border-top: 2px solid #000080;
+            border-bottom: 1px solid #aaaaff;
+            margin: 8px 0;
+        }
+
+        .star-divider {
+            text-align: center;
+            color: #000080;
+            font-size: 12px;
+            letter-spacing: 4px;
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BANNER
+============================================================ -->
+<div class="top-banner">
+    <div class="banner-inner">
+        <div class="banner-logo-cell">
+            <!-- Inline SVG shield/bank icon in lieu of a real GIF -->
+            <svg width="48" height="48" viewBox="0 0 48 48" style="vertical-align:middle; margin-right:8px;"
+                 xmlns="http://www.w3.org/2000/svg">
+                <polygon points="24,2 46,14 46,46 2,46 2,14" fill="#000033" stroke="#ffcc00" stroke-width="2"/>
+                <rect x="8" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="16" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="24" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="32" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="6" y="20" width="36" height="3" fill="#ffcc00"/>
+                <polygon points="24,6 40,14 8,14" fill="#ffcc00"/>
+                <rect x="6" y="38" width="36" height="3" fill="#ffcc00"/>
+            </svg>
+            <span class="banner-title">First National Savings Bank</span>
+            <span class="banner-subtitle">Established 1887 &nbsp;&bull;&nbsp; Member FDIC &nbsp;&bull;&nbsp; Equal Housing Lender</span>
+        </div>
+        <div class="banner-actions-cell">
+      <span style="color:#aaddff; font-size:10px; font-family:Arial; display:block; margin-bottom:4px;">
+        <span class="blink">&#9679;</span> Internet Banking is LIVE
+      </span>
+            <a href="/login.html" class="btn-login">[ LOGIN ]</a>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     TICKER
+============================================================ -->
+<div class="ticker-bar">
+  <span class="ticker-inner">
+    &nbsp;&nbsp;&nbsp;
+    FNSB SAVINGS RATE: 5.25% APY &nbsp;***&nbsp;
+    30-YR FIXED MORTGAGE: 7.875% &nbsp;***&nbsp;
+    15-YR FIXED MORTGAGE: 7.125% &nbsp;***&nbsp;
+    PRIME RATE: 8.50% &nbsp;***&nbsp;
+    DOW JONES: 7,908.25 (+14.32) &nbsp;***&nbsp;
+    S&amp;P 500: 971.68 (+2.11) &nbsp;***&nbsp;
+    NASDAQ: 1,570.42 (-8.07) &nbsp;***&nbsp;
+    GOLD: $332.80/oz &nbsp;***&nbsp;
+    FNSB CD SPECIAL: 5.50% APY (12-MO) &nbsp;***&nbsp;
+    NEW! ONLINE BILL PAY NOW AVAILABLE &nbsp;***&nbsp;
+  </span>
+</div>
+
+<!-- ============================================================
+     NAVIGATION BAR
+============================================================ -->
+<div class="navbar">
+    <a href="#">Personal Banking</a>
+    <a href="#">Business Banking</a>
+    <a href="#">Loans &amp; Mortgages</a>
+    <a href="#">Investments</a>
+    <a href="#">Rates &amp; Fees</a>
+    <a href="#">Locations &amp; ATMs</a>
+    <a href="#">About FNSB</a>
+    <a href="#">Contact Us</a>
+</div>
+
+<!-- ============================================================
+     PAGE WRAPPER
+============================================================ -->
+<div class="page-wrapper">
+
+    <!-- Security notice -->
+    <div class="security-strip">
+        &#128274; &nbsp; This site uses 128-bit SSL encryption. Look for the padlock icon in your browser.
+        &nbsp;|&nbsp; Best viewed in Netscape Navigator 3.0+ or Internet Explorer 4.0+ at 800x600 resolution.
+    </div>
+
+    <!-- Promo marquee -->
+    <div class="promo-strip">
+        <marquee scrollamount="3">
+            &#9733; LIMITED TIME: Open a new Platinum Checking account and receive a FREE toaster oven! &nbsp;&nbsp;&nbsp;
+            &#9733; NEW! Apply for a Home Equity Line of Credit entirely ONLINE! &nbsp;&nbsp;&nbsp;
+            &#9733; FNSB Student Loans — low rates for qualifying applicants. Ask us today! &nbsp;&nbsp;&nbsp;
+            &#9733; Click here to learn about our Y2K Preparedness Plan &nbsp;&nbsp;&nbsp;
+        </marquee>
+    </div>
+
+    <!-- Main two-column layout -->
+    <table class="layout-table">
+        <tr>
+
+            <!-- ==================== SIDEBAR ==================== -->
+            <td class="sidebar">
+
+                <!-- Quick Links -->
+                <div class="sidebar-box">
+                    <div class="sidebar-box-title">&#187; Quick Links</div>
+                    <div class="sidebar-box-body">
+                        <a href="#">Online Account Access</a>
+                        <a href="#">Check Balances</a>
+                        <a href="#">Transfer Funds</a>
+                        <a href="#">Pay Bills Online <span class="construction">NEW!</span></a>
+                        <a href="#">Apply for a Loan</a>
+                        <a href="#">Open an Account</a>
+                        <a href="#">Order Checks</a>
+                        <a href="#">Lost/Stolen Card</a>
+                        <a href="#">Wire Transfer</a>
+                        <a href="#">eStatements</a>
+                    </div>
+                </div>
+
+                <!-- Today's Rates -->
+                <div class="sidebar-box">
+                    <div class="sidebar-box-title">&#187; Today's Rates</div>
+                    <div class="sidebar-box-body sidebar-rates">
+                        <table>
+                            <tr><td>Savings</td><td class="rate-green">5.25%</td></tr>
+                            <tr><td>CD 6-mo</td><td class="rate-green">5.10%</td></tr>
+                            <tr><td>CD 12-mo</td><td class="rate-green">5.50%</td></tr>
+                            <tr><td>MMA</td><td class="rate-green">4.85%</td></tr>
+                            <tr><td>30yr Mtg</td><td style="color:#ff9966;">7.875%</td></tr>
+                            <tr><td>15yr Mtg</td><td style="color:#ff9966;">7.125%</td></tr>
+                            <tr><td>Auto Loan</td><td style="color:#ff9966;">9.25%</td></tr>
+                        </table>
+                        <div style="margin-top:4px; color:#aaaaaa; font-size:9px;">
+                            Rates updated daily.<br>APY = Annual Percentage Yield.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visitor Counter -->
+                <div class="counter-box">
+                    <div style="font-size:9px; color:#aaaaaa; margin-bottom:2px;">Visitors since Jan 1, 1997:</div>
+                    <span style="font-size:16px; letter-spacing:3px; color:#00ff00;">004<span style="color:#ffcc00;">8</span>271</span>
+                </div>
+                <br>
+
+                <!-- Awards badge -->
+                <div style="text-align:center; font-size:9px; font-family:Arial; color:#555555;">
+                    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="40,5 49,29 75,29 54,47 62,72 40,56 18,72 26,47 5,29 31,29"
+                                 fill="#ffcc00" stroke="#cc9900" stroke-width="1"/>
+                        <text x="40" y="38" text-anchor="middle" font-size="7" font-family="Arial" font-weight="bold" fill="#000080">BEST</text>
+                        <text x="40" y="47" text-anchor="middle" font-size="6" font-family="Arial" font-weight="bold" fill="#000080">INTERNET</text>
+                        <text x="40" y="55" text-anchor="middle" font-size="6" font-family="Arial" font-weight="bold" fill="#000080">BANKING</text>
+                        <text x="40" y="63" text-anchor="middle" font-size="5" font-family="Arial" fill="#000080">1997</text>
+                    </svg>
+                    <br>
+                    <em>"Best Internet Banking"</em><br>
+                    — BankTech Quarterly, 1997
+                </div>
+
+            </td>
+
+            <!-- ==================== MAIN CONTENT ==================== -->
+            <td class="main-content">
+
+                <!-- Welcome Panel -->
+                <div class="welcome-panel">
+                    <div class="welcome-panel-title">
+                        &#127968; Welcome to First National Savings Bank Online
+                    </div>
+                    <div class="welcome-panel-body">
+                        <h2>Your Trusted Financial Partner Since 1887</h2>
+                        <p>
+                            Welcome to <strong>First National Savings Bank's</strong> new <em>World Wide Web</em> presence!
+                            We are proud to offer our valued customers secure, convenient access to their accounts
+                            right from the comfort of their home computer.
+                        </p>
+                        <p>
+                            Whether you need to check your balance, transfer funds between accounts, or apply for
+                            one of our competitively-priced loan products, our <strong>Internet Banking</strong> portal
+                            puts the power of FNSB at your fingertips — 24 hours a day, 7 days a week!
+                        </p>
+                        <p>
+                            To access your accounts, simply click the <strong>[ LOGIN ]</strong> button in the
+                            upper right corner of this page. First-time users, please
+                            <a href="#">register here</a> or visit any of our <a href="#">22 convenient branch locations</a>.
+                        </p>
+
+                        <div class="star-divider">&#9733; &#9734; &#9733; &#9734; &#9733;</div>
+
+                        <!-- Products table -->
+                        <h2>Our Products &amp; Services</h2>
+                        <table class="products-table">
+                            <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Rate / APY</th>
+                                <th>Min. Balance</th>
+                                <th>Details</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><strong>Basic Savings</strong></td>
+                                <td>4.75%</td>
+                                <td>$100</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Platinum Savings</strong></td>
+                                <td>5.25%</td>
+                                <td>$2,500</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Basic Checking</strong></td>
+                                <td>0.50%</td>
+                                <td>$0</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Platinum Checking</strong></td>
+                                <td>2.10%</td>
+                                <td>$1,000</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>12-Month CD Special</strong></td>
+                                <td><strong>5.50%</strong> <span class="blink" style="color:red;">&#9733;</span></td>
+                                <td>$500</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Money Market Account</strong></td>
+                                <td>4.85%</td>
+                                <td>$2,500</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>30-Year Fixed Mortgage</strong></td>
+                                <td>7.875%</td>
+                                <td>—</td>
+                                <td><a href="#">Apply Online</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- News Box -->
+                <div class="news-box">
+                    <h3>&#128240; FNSB News &amp; Announcements</h3>
+
+                    <div class="news-item">
+                        <span class="news-date">11/03/1997</span> &nbsp;
+                        <strong><a href="#">FNSB Launches Online Bill Pay Service</a></strong> — Pay your utility bills,
+                        credit cards, and more directly from your checking account. <a href="#">Read more &raquo;</a>
+                    </div>
+
+                    <div class="news-item">
+                        <span class="news-date">10/15/1997</span> &nbsp;
+                        <strong><a href="#">New Branch Opening: Riverside Plaza Location</a></strong> — FNSB is proud to
+                        announce our 23rd branch, opening November 1st. <a href="#">Read more &raquo;</a>
+                    </div>
+
+                    <div class="news-item">
+                        <span class="news-date">09/28/1997</span> &nbsp;
+                        <strong><a href="#">FNSB Raises CD Rates to 5.50% APY</a></strong> — Take advantage of our best CD
+                        rates in over a decade. Limited time offer. <a href="#">Read more &raquo;</a>
+                    </div>
+
+                    <div class="news-item">
+                        <span class="news-date">09/01/1997</span> &nbsp;
+                        <strong><a href="#">Y2K Statement from FNSB President Harold J. Whitmore</a></strong> — Our systems
+                        are fully compliant. Your funds are safe. <a href="#">Read more &raquo;</a>
+                    </div>
+
+                    <div class="news-item">
+                        <span class="news-date">07/04/1997</span> &nbsp;
+                        <strong><a href="#">FNSB Celebrates 110 Years of Community Banking</a></strong> — Join us at
+                        Founders Day, Saturday July 12th at our downtown branch. <a href="#">Read more &raquo;</a>
+                    </div>
+                </div>
+
+                <!-- Bottom promo row -->
+                <table style="width:100%; border-collapse:collapse; font-size:11px; font-family:Arial;">
+                    <tr>
+                        <td style="width:33%; padding:4px; border:2px inset #aaaaaa; background:#e8f0f8; text-align:center; vertical-align:top;">
+                            <div style="font-weight:bold; color:#000080; font-size:12px; border-bottom:1px solid #aaaaaa; padding-bottom:3px; margin-bottom:4px;">
+                                &#127968; Home Loans
+                            </div>
+                            Get pre-approved online in minutes! Competitive rates, fast decisions.
+                            <br><br>
+                            <a href="#" style="color:#000080; font-weight:bold;">Apply Now &raquo;</a>
+                        </td>
+                        <td style="width:4%;"></td>
+                        <td style="width:33%; padding:4px; border:2px inset #aaaaaa; background:#e8f0f8; text-align:center; vertical-align:top;">
+                            <div style="font-weight:bold; color:#000080; font-size:12px; border-bottom:1px solid #aaaaaa; padding-bottom:3px; margin-bottom:4px;">
+                                &#128179; Free Checking
+                            </div>
+                            No monthly fees. No minimum balance. Free checks for the first year!
+                            <br><br>
+                            <a href="#" style="color:#000080; font-weight:bold;">Open Account &raquo;</a>
+                        </td>
+                        <td style="width:4%;"></td>
+                        <td style="width:33%; padding:4px; border:2px inset #aaaaaa; background:#fff8e0; border-color:#ccaa00; text-align:center; vertical-align:top;">
+                            <div style="font-weight:bold; color:#990000; font-size:12px; border-bottom:1px solid #ccaa00; padding-bottom:3px; margin-bottom:4px;">
+                                <span class="blink">&#9733;</span> CD Special
+                            </div>
+                            <strong>5.50% APY</strong> — 12-month Certificate of Deposit.
+                            Minimum $500 deposit. Offer ends 12/31/1997.
+                            <br><br>
+                            <a href="#" style="color:#990000; font-weight:bold;">Invest Now &raquo;</a>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Footer -->
+    <div class="footer">
+        <hr class="fancy">
+        <strong>First National Savings Bank</strong> &nbsp;|&nbsp;
+        1 Commerce Plaza, Springfield, IL 62701 &nbsp;|&nbsp;
+        Tel: (217) 555-0100 &nbsp;|&nbsp;
+        <a href="#">Privacy Policy</a> &nbsp;|&nbsp;
+        <a href="#">Security</a> &nbsp;|&nbsp;
+        <a href="#">Accessibility</a> &nbsp;|&nbsp;
+        <a href="/cdn-cgi/l/email-protection#413624232c203235243301272f32236f222e2c">Webmaster</a>
+        <br><br>
+        &copy; 1997 First National Savings Bank. All rights reserved.
+        FNSB is a federally chartered savings bank. Member <strong>FDIC</strong>.
+        Equal Housing Lender. &nbsp; Deposits insured up to $100,000.
+        <br><br>
+        <span style="font-size:9px; color:#777777;">
+      This site is best viewed at 800&times;600 resolution using Netscape Navigator 3.0 or higher.
+      Internet Explorer 4.0 is also supported. Some features may not be available with other browsers.
+      &nbsp;|&nbsp; <em>Site last updated: November 3, 1997</em>
+    </span>
+        <br><br>
+        <span style="font-size:9px; color:#aaaaaa;">
+      <em>Prospective customers:</em> Interested in learning more about FNSB Internet Banking?
+      <a href="/FNSB_InternetBanking_Guide.pdf" style="color:#aaddff;">Access our Internet Banking guide here.</a>
+    </span>
+        <br><br>
+        <!-- Fake W3C / FDIC badges -->
+        <svg width="88" height="31" viewBox="0 0 88 31" xmlns="http://www.w3.org/2000/svg" style="margin:0 4px;">
+            <rect width="88" height="31" fill="#003366"/>
+            <text x="44" y="12" text-anchor="middle" font-size="9" font-family="Arial" font-weight="bold" fill="#ffffff">Valid HTML 4.0</text>
+            <text x="44" y="24" text-anchor="middle" font-size="8" font-family="Arial" fill="#aaddff">W3C Certified</text>
+        </svg>
+        <svg width="88" height="31" viewBox="0 0 88 31" xmlns="http://www.w3.org/2000/svg" style="margin:0 4px;">
+            <rect width="88" height="31" fill="#006600"/>
+            <text x="44" y="12" text-anchor="middle" font-size="9" font-family="Arial" font-weight="bold" fill="#ffffff">FDIC Insured</text>
+            <text x="44" y="24" text-anchor="middle" font-size="8" font-family="Arial" fill="#aaffaa">Member Bank</text>
+        </svg>
+        <svg width="88" height="31" viewBox="0 0 88 31" xmlns="http://www.w3.org/2000/svg" style="margin:0 4px;">
+            <rect width="88" height="31" fill="#990000"/>
+            <text x="44" y="12" text-anchor="middle" font-size="9" font-family="Arial" font-weight="bold" fill="#ffffff">SSL Secured</text>
+            <text x="44" y="24" text-anchor="middle" font-size="8" font-family="Arial" fill="#ffaaaa">128-bit</text>
+        </svg>
+    </div>
+
+=======
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="description" content="First National Savings Bank - Online Banking">
+    <meta name="keywords" content="bank,savings,checking,online banking,secure,internet banking">
+    <title>First National Savings Bank - Welcome to Online Banking</title>
+    <style type="text/css">
+        /* =====================================================
+           FIRST NATIONAL SAVINGS BANK - STYLESHEET v1.0
+           Last updated: 03/14/1997
+           Webmaster: webmaster@fnsb.com
+        ===================================================== */
+
+        body {
+            background-color: #c0c0c0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23c0c0c0'/%3E%3Crect width='1' height='1' fill='%23b0b0b0' opacity='0.4'/%3E%3C/svg%3E");
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12px;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ---- TOP BANNER ---- */
+        .top-banner {
+            width: 100%;
+            background-color: #000080;
+            border-bottom: 3px solid #ffcc00;
+            padding: 0;
+        }
+
+        .banner-inner {
+            display: table;
+            width: 100%;
+        }
+
+        .banner-logo-cell {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 6px 12px;
+            width: 60%;
+        }
+
+        .banner-logo-cell img {
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .banner-title {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 2px 2px #000033;
+            vertical-align: middle;
+            letter-spacing: 1px;
+        }
+
+        .banner-subtitle {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #aaddff;
+            display: block;
+            margin-top: 2px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .banner-actions-cell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+            padding: 6px 12px;
+        }
+
+        .btn-login {
+            background-color: #ffcc00;
+            color: #000080;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px outset #ffee88;
+            padding: 4px 14px;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .btn-login:hover {
+            background-color: #ffe033;
+            border-style: inset;
+        }
+
+        /* ---- TICKER BAR ---- */
+        .ticker-bar {
+            background-color: #000033;
+            color: #00ff00;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 11px;
+            padding: 3px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 2px solid #000080;
+        }
+
+        .ticker-inner {
+            display: inline-block;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0%   { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* ---- NAV BAR ---- */
+        .navbar {
+            background-color: #000080;
+            border-bottom: 2px solid #000033;
+            padding: 0;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 14px;
+            border-right: 1px solid #3333aa;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar a:first-child { border-left: 1px solid #3333aa; }
+        .navbar a:hover { background-color: #3333cc; color: #ffcc00; }
+
+        /* ---- PAGE LAYOUT ---- */
+        .page-wrapper {
+            width: 780px;
+            margin: 10px auto;
+        }
+
+        /* ---- MAIN TABLE LAYOUT ---- */
+        .layout-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .sidebar {
+            width: 170px;
+            vertical-align: top;
+            padding-right: 8px;
+        }
+
+        .main-content {
+            vertical-align: top;
+            padding-left: 6px;
+        }
+
+        /* ---- SIDEBAR BOX ---- */
+        .sidebar-box {
+            background-color: #000080;
+            border: 2px solid #000033;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-box-title {
+            background-color: #000033;
+            color: #ffcc00;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #3333aa;
+        }
+
+        .sidebar-box-body {
+            padding: 6px;
+        }
+
+        .sidebar-box-body a {
+            display: block;
+            color: #aaddff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            text-decoration: none;
+            padding: 2px 0;
+            border-bottom: 1px dotted #3333aa;
+        }
+
+        .sidebar-box-body a:hover { color: #ffcc00; text-decoration: underline; }
+
+        .sidebar-rates {
+            color: #ffffff;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 11px;
+            padding: 4px;
+        }
+
+        .sidebar-rates table { width: 100%; }
+        .sidebar-rates td { padding: 1px 2px; }
+        .rate-green { color: #00ff66; font-weight: bold; }
+
+        /* ---- WELCOME PANEL ---- */
+        .welcome-panel {
+            background-color: #ffffff;
+            border: 2px inset #aaaaaa;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .welcome-panel-title {
+            background: linear-gradient(to right, #000080, #3333cc);
+            color: #ffcc00;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-bottom: 2px solid #ffcc00;
+        }
+
+        .welcome-panel-body {
+            padding: 10px 12px;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .welcome-panel-body h2 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 15px;
+            color: #000080;
+            margin: 0 0 6px 0;
+            border-bottom: 1px solid #aaaaaa;
+            padding-bottom: 3px;
+        }
+
+        /* ---- PRODUCTS TABLE ---- */
+        .products-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            margin-top: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .products-table th {
+            background-color: #000080;
+            color: #ffcc00;
+            padding: 4px 8px;
+            text-align: left;
+            border: 1px solid #000033;
+            font-size: 11px;
+        }
+
+        .products-table td {
+            padding: 4px 8px;
+            border: 1px solid #aaaaaa;
+        }
+
+        .products-table tr:nth-child(even) td { background-color: #dde8f0; }
+        .products-table tr:nth-child(odd) td  { background-color: #f0f4f8; }
+
+        .products-table a { color: #000080; }
+
+        /* ---- NEWS BOX ---- */
+        .news-box {
+            background-color: #fffff0;
+            border: 2px inset #aaaaaa;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            font-size: 11px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .news-box h3 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 13px;
+            color: #990000;
+            margin: 0 0 6px 0;
+            border-bottom: 1px solid #cccccc;
+            padding-bottom: 2px;
+        }
+
+        .news-item {
+            padding: 3px 0;
+            border-bottom: 1px dotted #cccccc;
+            color: #333333;
+        }
+
+        .news-date {
+            color: #999999;
+            font-size: 10px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .news-item a { color: #000080; }
+
+        /* ---- SECURITY BANNER ---- */
+        .security-strip {
+            background-color: #006600;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            text-align: center;
+            padding: 3px;
+            border: 1px solid #004400;
+            margin-bottom: 8px;
+        }
+
+        /* ---- MARQUEE STRIP ---- */
+        .promo-strip {
+            background-color: #ffcc00;
+            color: #000080;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 6px;
+            border: 1px solid #cc9900;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        /* ---- FOOTER ---- */
+        .footer {
+            background-color: #000033;
+            color: #aaaaaa;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            text-align: center;
+            padding: 8px;
+            border-top: 2px solid #000080;
+            margin-top: 14px;
+        }
+
+        .footer a { color: #aaddff; }
+
+        /* ---- UNDER CONSTRUCTION ---- */
+        .construction {
+            display: inline-block;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #990000;
+            font-weight: bold;
+        }
+
+        /* ---- BLINK ---- */
+        .blink {
+            animation: blinker 1s step-start infinite;
+        }
+
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* ---- VISITOR COUNTER ---- */
+        .counter-box {
+            text-align: center;
+            background-color: #000033;
+            border: 2px inset #aaaaaa;
+            padding: 4px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 10px;
+            color: #00ff00;
+        }
+
+        /* horizontal rule styling */
+        hr.fancy {
+            border: none;
+            border-top: 2px solid #000080;
+            border-bottom: 1px solid #aaaaff;
+            margin: 8px 0;
+        }
+
+        .star-divider {
+            text-align: center;
+            color: #000080;
+            font-size: 12px;
+            letter-spacing: 4px;
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BANNER
+============================================================ -->
+<div class="top-banner">
+    <div class="banner-inner">
+        <div class="banner-logo-cell">
+            <!-- Inline SVG shield/bank icon in lieu of a real GIF -->
+            <svg width="48" height="48" viewBox="0 0 48 48" style="vertical-align:middle; margin-right:8px;"
+                 xmlns="http://www.w3.org/2000/svg">
+                <polygon points="24,2 46,14 46,46 2,46 2,14" fill="#000033" stroke="#ffcc00" stroke-width="2"/>
+                <rect x="8" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="16" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="24" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="32" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="6" y="20" width="36" height="3" fill="#ffcc00"/>
+                <polygon points="24,6 40,14 8,14" fill="#ffcc00"/>
+                <rect x="6" y="38" width="36" height="3" fill="#ffcc00"/>
+            </svg>
+            <span class="banner-title">First National Savings Bank</span>
+            <span class="banner-subtitle">Established 1887 &nbsp;&bull;&nbsp; Member FDIC &nbsp;&bull;&nbsp; Equal Housing Lender</span>
+        </div>
+        <div class="banner-actions-cell">
+      <span style="color:#aaddff; font-size:10px; font-family:Arial; display:block; margin-bottom:4px;">
+        <span class="blink">&#9679;</span> Internet Banking is LIVE
+      </span>
+            <a href="/login.html" class="btn-login">[ LOGIN ]</a>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     TICKER
+============================================================ -->
+<div class="ticker-bar">
+  <span class="ticker-inner">
+    &nbsp;&nbsp;&nbsp;
+    FNSB SAVINGS RATE: 5.25% APY &nbsp;***&nbsp;
+    30-YR FIXED MORTGAGE: 7.875% &nbsp;***&nbsp;
+    15-YR FIXED MORTGAGE: 7.125% &nbsp;***&nbsp;
+    PRIME RATE: 8.50% &nbsp;***&nbsp;
+    DOW JONES: 7,908.25 (+14.32) &nbsp;***&nbsp;
+    S&amp;P 500: 971.68 (+2.11) &nbsp;***&nbsp;
+    NASDAQ: 1,570.42 (-8.07) &nbsp;***&nbsp;
+    GOLD: $332.80/oz &nbsp;***&nbsp;
+    FNSB CD SPECIAL: 5.50% APY (12-MO) &nbsp;***&nbsp;
+    NEW! ONLINE BILL PAY NOW AVAILABLE &nbsp;***&nbsp;
+  </span>
+</div>
+
+<!-- ============================================================
+     NAVIGATION BAR
+============================================================ -->
+<div class="navbar">
+    <a href="#">Personal Banking</a>
+    <a href="#">Business Banking</a>
+    <a href="#">Loans &amp; Mortgages</a>
+    <a href="#">Investments</a>
+    <a href="#">Rates &amp; Fees</a>
+    <a href="#">Locations &amp; ATMs</a>
+    <a href="#">About FNSB</a>
+    <a href="#">Contact Us</a>
+</div>
+
+<!-- ============================================================
+     PAGE WRAPPER
+============================================================ -->
+<div class="page-wrapper">
+
+    <!-- Security notice -->
+    <div class="security-strip">
+        &#128274; &nbsp; This site uses 128-bit SSL encryption. Look for the padlock icon in your browser.
+        &nbsp;|&nbsp; Best viewed in Netscape Navigator 3.0+ or Internet Explorer 4.0+ at 800x600 resolution.
+    </div>
+
+    <!-- Promo marquee -->
+    <div class="promo-strip">
+        <marquee scrollamount="3">
+            &#9733; LIMITED TIME: Open a new Platinum Checking account and receive a FREE toaster oven! &nbsp;&nbsp;&nbsp;
+            &#9733; NEW! Apply for a Home Equity Line of Credit entirely ONLINE! &nbsp;&nbsp;&nbsp;
+            &#9733; FNSB Student Loans — low rates for qualifying applicants. Ask us today! &nbsp;&nbsp;&nbsp;
+            &#9733; Click here to learn about our Y2K Preparedness Plan &nbsp;&nbsp;&nbsp;
+        </marquee>
+    </div>
+
+    <!-- Main two-column layout -->
+    <table class="layout-table">
+        <tr>
+
+            <!-- ==================== SIDEBAR ==================== -->
+            <td class="sidebar">
+
+                <!-- Quick Links -->
+                <div class="sidebar-box">
+                    <div class="sidebar-box-title">&#187; Quick Links</div>
+                    <div class="sidebar-box-body">
+                        <a href="#">Online Account Access</a>
+                        <a href="#">Check Balances</a>
+                        <a href="#">Transfer Funds</a>
+                        <a href="#">Pay Bills Online <span class="construction">NEW!</span></a>
+                        <a href="#">Apply for a Loan</a>
+                        <a href="#">Open an Account</a>
+                        <a href="#">Order Checks</a>
+                        <a href="#">Lost/Stolen Card</a>
+                        <a href="#">Wire Transfer</a>
+                        <a href="#">eStatements</a>
+                    </div>
+                </div>
+
+                <!-- Today's Rates -->
+                <div class="sidebar-box">
+                    <div class="sidebar-box-title">&#187; Today's Rates</div>
+                    <div class="sidebar-box-body sidebar-rates">
+                        <table>
+                            <tr><td>Savings</td><td class="rate-green">5.25%</td></tr>
+                            <tr><td>CD 6-mo</td><td class="rate-green">5.10%</td></tr>
+                            <tr><td>CD 12-mo</td><td class="rate-green">5.50%</td></tr>
+                            <tr><td>MMA</td><td class="rate-green">4.85%</td></tr>
+                            <tr><td>30yr Mtg</td><td style="color:#ff9966;">7.875%</td></tr>
+                            <tr><td>15yr Mtg</td><td style="color:#ff9966;">7.125%</td></tr>
+                            <tr><td>Auto Loan</td><td style="color:#ff9966;">9.25%</td></tr>
+                        </table>
+                        <div style="margin-top:4px; color:#aaaaaa; font-size:9px;">
+                            Rates updated daily.<br>APY = Annual Percentage Yield.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visitor Counter -->
+                <div class="counter-box">
+                    <div style="font-size:9px; color:#aaaaaa; margin-bottom:2px;">Visitors since Jan 1, 1997:</div>
+                    <span style="font-size:16px; letter-spacing:3px; color:#00ff00;">004<span style="color:#ffcc00;">8</span>271</span>
+                </div>
+                <br>
+
+                <!-- Awards badge -->
+                <div style="text-align:center; font-size:9px; font-family:Arial; color:#555555;">
+                    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="40,5 49,29 75,29 54,47 62,72 40,56 18,72 26,47 5,29 31,29"
+                                 fill="#ffcc00" stroke="#cc9900" stroke-width="1"/>
+                        <text x="40" y="38" text-anchor="middle" font-size="7" font-family="Arial" font-weight="bold" fill="#000080">BEST</text>
+                        <text x="40" y="47" text-anchor="middle" font-size="6" font-family="Arial" font-weight="bold" fill="#000080">INTERNET</text>
+                        <text x="40" y="55" text-anchor="middle" font-size="6" font-family="Arial" font-weight="bold" fill="#000080">BANKING</text>
+                        <text x="40" y="63" text-anchor="middle" font-size="5" font-family="Arial" fill="#000080">1997</text>
+                    </svg>
+                    <br>
+                    <em>"Best Internet Banking"</em><br>
+                    — BankTech Quarterly, 1997
+                </div>
+
+            </td>
+
+            <!-- ==================== MAIN CONTENT ==================== -->
+            <td class="main-content">
+
+                <!-- Welcome Panel -->
+                <div class="welcome-panel">
+                    <div class="welcome-panel-title">
+                        &#127968; Welcome to First National Savings Bank Online
+                    </div>
+                    <div class="welcome-panel-body">
+                        <h2>Your Trusted Financial Partner Since 1887</h2>
+                        <p>
+                            Welcome to <strong>First National Savings Bank's</strong> new <em>World Wide Web</em> presence!
+                            We are proud to offer our valued customers secure, convenient access to their accounts
+                            right from the comfort of their home computer.
+                        </p>
+                        <p>
+                            Whether you need to check your balance, transfer funds between accounts, or apply for
+                            one of our competitively-priced loan products, our <strong>Internet Banking</strong> portal
+                            puts the power of FNSB at your fingertips — 24 hours a day, 7 days a week!
+                        </p>
+                        <p>
+                            To access your accounts, simply click the <strong>[ LOGIN ]</strong> button in the
+                            upper right corner of this page. First-time users, please
+                            <a href="#">register here</a> or visit any of our <a href="#">22 convenient branch locations</a>.
+                        </p>
+
+                        <div class="star-divider">&#9733; &#9734; &#9733; &#9734; &#9733;</div>
+
+                        <!-- Products table -->
+                        <h2>Our Products &amp; Services</h2>
+                        <table class="products-table">
+                            <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Rate / APY</th>
+                                <th>Min. Balance</th>
+                                <th>Details</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><strong>Basic Savings</strong></td>
+                                <td>4.75%</td>
+                                <td>$100</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Platinum Savings</strong></td>
+                                <td>5.25%</td>
+                                <td>$2,500</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Basic Checking</strong></td>
+                                <td>0.50%</td>
+                                <td>$0</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Platinum Checking</strong></td>
+                                <td>2.10%</td>
+                                <td>$1,000</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>12-Month CD Special</strong></td>
+                                <td><strong>5.50%</strong> <span class="blink" style="color:red;">&#9733;</span></td>
+                                <td>$500</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Money Market Account</strong></td>
+                                <td>4.85%</td>
+                                <td>$2,500</td>
+                                <td><a href="#">Learn More</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>30-Year Fixed Mortgage</strong></td>
+                                <td>7.875%</td>
+                                <td>—</td>
+                                <td><a href="#">Apply Online</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- News Box -->
+                <div class="news-box">
+                    <h3>&#128240; FNSB News &amp; Announcements</h3>
+
+                    <div class="news-item">
+                        <span class="news-date">11/03/1997</span> &nbsp;
+                        <strong><a href="#">FNSB Launches Online Bill Pay Service</a></strong> — Pay your utility bills,
+                        credit cards, and more directly from your checking account. <a href="#">Read more &raquo;</a>
+                    </div>
+
+                    <div class="news-item">
+                        <span class="news-date">10/15/1997</span> &nbsp;
+                        <strong><a href="#">New Branch Opening: Riverside Plaza Location</a></strong> — FNSB is proud to
+                        announce our 23rd branch, opening November 1st. <a href="#">Read more &raquo;</a>
+                    </div>
+
+                    <div class="news-item">
+                        <span class="news-date">09/28/1997</span> &nbsp;
+                        <strong><a href="#">FNSB Raises CD Rates to 5.50% APY</a></strong> — Take advantage of our best CD
+                        rates in over a decade. Limited time offer. <a href="#">Read more &raquo;</a>
+                    </div>
+
+                    <div class="news-item">
+                        <span class="news-date">09/01/1997</span> &nbsp;
+                        <strong><a href="#">Y2K Statement from FNSB President Harold J. Whitmore</a></strong> — Our systems
+                        are fully compliant. Your funds are safe. <a href="#">Read more &raquo;</a>
+                    </div>
+
+                    <div class="news-item">
+                        <span class="news-date">07/04/1997</span> &nbsp;
+                        <strong><a href="#">FNSB Celebrates 110 Years of Community Banking</a></strong> — Join us at
+                        Founders Day, Saturday July 12th at our downtown branch. <a href="#">Read more &raquo;</a>
+                    </div>
+                </div>
+
+                <!-- Bottom promo row -->
+                <table style="width:100%; border-collapse:collapse; font-size:11px; font-family:Arial;">
+                    <tr>
+                        <td style="width:33%; padding:4px; border:2px inset #aaaaaa; background:#e8f0f8; text-align:center; vertical-align:top;">
+                            <div style="font-weight:bold; color:#000080; font-size:12px; border-bottom:1px solid #aaaaaa; padding-bottom:3px; margin-bottom:4px;">
+                                &#127968; Home Loans
+                            </div>
+                            Get pre-approved online in minutes! Competitive rates, fast decisions.
+                            <br><br>
+                            <a href="#" style="color:#000080; font-weight:bold;">Apply Now &raquo;</a>
+                        </td>
+                        <td style="width:4%;"></td>
+                        <td style="width:33%; padding:4px; border:2px inset #aaaaaa; background:#e8f0f8; text-align:center; vertical-align:top;">
+                            <div style="font-weight:bold; color:#000080; font-size:12px; border-bottom:1px solid #aaaaaa; padding-bottom:3px; margin-bottom:4px;">
+                                &#128179; Free Checking
+                            </div>
+                            No monthly fees. No minimum balance. Free checks for the first year!
+                            <br><br>
+                            <a href="#" style="color:#000080; font-weight:bold;">Open Account &raquo;</a>
+                        </td>
+                        <td style="width:4%;"></td>
+                        <td style="width:33%; padding:4px; border:2px inset #aaaaaa; background:#fff8e0; border-color:#ccaa00; text-align:center; vertical-align:top;">
+                            <div style="font-weight:bold; color:#990000; font-size:12px; border-bottom:1px solid #ccaa00; padding-bottom:3px; margin-bottom:4px;">
+                                <span class="blink">&#9733;</span> CD Special
+                            </div>
+                            <strong>5.50% APY</strong> — 12-month Certificate of Deposit.
+                            Minimum $500 deposit. Offer ends 12/31/1997.
+                            <br><br>
+                            <a href="#" style="color:#990000; font-weight:bold;">Invest Now &raquo;</a>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Footer -->
+    <div class="footer">
+        <hr class="fancy">
+        <strong>First National Savings Bank</strong> &nbsp;|&nbsp;
+        1 Commerce Plaza, Springfield, IL 62701 &nbsp;|&nbsp;
+        Tel: (217) 555-0100 &nbsp;|&nbsp;
+        <a href="#">Privacy Policy</a> &nbsp;|&nbsp;
+        <a href="#">Security</a> &nbsp;|&nbsp;
+        <a href="#">Accessibility</a> &nbsp;|&nbsp;
+        <a href="/cdn-cgi/l/email-protection#413624232c203235243301272f32236f222e2c">Webmaster</a>
+        <br><br>
+        &copy; 1997 First National Savings Bank. All rights reserved.
+        FNSB is a federally chartered savings bank. Member <strong>FDIC</strong>.
+        Equal Housing Lender. &nbsp; Deposits insured up to $100,000.
+        <br><br>
+        <span style="font-size:9px; color:#777777;">
+      This site is best viewed at 800&times;600 resolution using Netscape Navigator 3.0 or higher.
+      Internet Explorer 4.0 is also supported. Some features may not be available with other browsers.
+      &nbsp;|&nbsp; <em>Site last updated: November 3, 1997</em>
+    </span>
+        <br><br>
+        <span style="font-size:9px; color:#aaaaaa;">
+      <em>Prospective customers:</em> Interested in learning more about FNSB Internet Banking?
+      <a href="/resources/FNSB_InternetBanking_Guide.pdf" style="color:#aaddff;">Access our Internet Banking guide here.</a>
+    </span>
+        <br><br>
+        <!-- Fake W3C / FDIC badges -->
+        <svg width="88" height="31" viewBox="0 0 88 31" xmlns="http://www.w3.org/2000/svg" style="margin:0 4px;">
+            <rect width="88" height="31" fill="#003366"/>
+            <text x="44" y="12" text-anchor="middle" font-size="9" font-family="Arial" font-weight="bold" fill="#ffffff">Valid HTML 4.0</text>
+            <text x="44" y="24" text-anchor="middle" font-size="8" font-family="Arial" fill="#aaddff">W3C Certified</text>
+        </svg>
+        <svg width="88" height="31" viewBox="0 0 88 31" xmlns="http://www.w3.org/2000/svg" style="margin:0 4px;">
+            <rect width="88" height="31" fill="#006600"/>
+            <text x="44" y="12" text-anchor="middle" font-size="9" font-family="Arial" font-weight="bold" fill="#ffffff">FDIC Insured</text>
+            <text x="44" y="24" text-anchor="middle" font-size="8" font-family="Arial" fill="#aaffaa">Member Bank</text>
+        </svg>
+        <svg width="88" height="31" viewBox="0 0 88 31" xmlns="http://www.w3.org/2000/svg" style="margin:0 4px;">
+            <rect width="88" height="31" fill="#990000"/>
+            <text x="44" y="12" text-anchor="middle" font-size="9" font-family="Arial" font-weight="bold" fill="#ffffff">SSL Secured</text>
+            <text x="44" y="24" text-anchor="middle" font-size="8" font-family="Arial" fill="#ffaaaa">128-bit</text>
+        </svg>
+    </div>
+
+>>>>>>> 7b6cf6203fde385d45d38164c32d588b687b19f0
+</div><!-

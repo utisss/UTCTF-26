@@ -1,0 +1,25 @@
+name: "Sherlockk"
+category: Forensics
+description: |
+  We're almost done agent.  All we need to do now is identify some Indicators 
+  of Compromise (IOCs) left by the threat actor, among other things. The triage
+   is the same as the one in "Landfall" and "Watson". Can you read the briefing 
+   and solve your part of the case?
+
+  Triage Files: https://cdn.utctf.live/Modified_KAPE_Triage_Files.zip
+
+  By Jared (@jarpiano on discord)
+author: Jared
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{b45k3rv1ll3-3l3m3n74ry-4r7hur_c0n4n_d0yl3}
+files:
+  - briefing.txt
+  - checkpointA.zip
+  - checkpointB.zip
+  - checkpointC.zip

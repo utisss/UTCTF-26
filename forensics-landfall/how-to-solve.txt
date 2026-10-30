@@ -1,0 +1,2 @@
+To obtain the flag, you must obtain the password to the "Checkpoint A"
+zip file. The password is associated with the problem assigned in the briefing.

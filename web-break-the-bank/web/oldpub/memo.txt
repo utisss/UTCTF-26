@@ -1,0 +1,129 @@
+FIRST NATIONAL SAVINGS BANK
+INTERNAL MEMORANDUM
+
+TO:      Application Development Team
+FROM:    Harold J. Whitmore, President & Chief Executive Officer
+         cc: Margaret L. Osei, VP of Information Technology
+             Dennis R. Kaczmarek, Director of Application Development
+DATE:    November 3, 1997
+RE:      Technology Modernization Initiative — Status & Priorities
+CLASSIFICATION: INTERNAL USE ONLY
+
+------------------------------------------------------------------------
+
+Team,
+
+I want to take a moment to address the progress we have made — and the
+work that remains — as we continue our effort to modernize the bank's
+core technology infrastructure.
+
+As many of you are aware, FNSB has operated on a foundation of legacy
+systems built over several decades. Our primary core banking platform
+dates to 1974, and while it has served us reliably, the constraints it
+places on our ability to deliver new products and services to our
+customers are becoming increasingly difficult to justify. The board has
+reaffirmed its commitment to the modernization initiative, and it falls
+to this team to execute on that vision responsibly.
+
+
+I. CURRENT STATE
+
+The migration of our customer-facing Internet Banking portal from the
+mainframe-hosted batch-processing model to our new Java-based
+application server (MAINFRAME-B, running the iBank v2.1.4 platform) has
+been an important first step. The team should be proud of what has been
+accomplished in a short period of time. Online account access, balance
+inquiry, and fund transfers are now live, and customer adoption has
+exceeded our projections.
+
+That said, we are keenly aware that this is a first iteration. The
+current stack is a bridge between old and new, not a destination. Much
+of the underlying data model still mirrors the flat-file structures of
+the legacy system, and our session management and authentication
+infrastructure carries forward assumptions that made sense in a closed
+mainframe environment but require rethinking for a public-facing
+internet application.
+
+
+II. MODERNIZATION CHALLENGES
+
+Moving a bank of our size and history to a modern application stack is
+not a straightforward undertaking, and I want to be direct with the
+team about where I see the friction.
+
+Data migration remains our most significant technical risk. The core
+account ledger, loan origination records, and transaction history span
+over twenty years of proprietary data formats. We do not yet have a
+complete and validated migration path for the oldest records, and until
+we do, the legacy system cannot be decommissioned. The team should
+continue to treat the mainframe as the system of record and the new
+platform as a parallel layer, not a replacement.
+
+Integration complexity is a close second. Our ACH gateway, wire
+transfer processing, and the FDIC reporting pipeline all rely on
+interfaces written specifically for the legacy system. Rewriting or
+wrapping these interfaces for the new stack without introducing
+settlement errors or regulatory reporting gaps will require careful
+coordination with both the operations team and our external partners at
+the Federal Reserve and correspondent banks.
+
+Organizational readiness also deserves an honest assessment. Many of
+our branch staff and back-office personnel have worked with the legacy
+system for their entire careers at FNSB. Training, change management,
+and support must be built into the project plan as first-class concerns,
+not afterthoughts.
+
+
+III. Y2K COMPLIANCE
+
+The team is already well aware of this, but I want it stated plainly in
+writing: Y2K remediation takes priority over all feature development
+between now and January 1, 2000. At 71% completion we are on track, but
+there is no margin for schedule slippage. Dennis, please ensure the
+weekly status reports to the board continue without interruption.
+
+
+IV. SECURITY PRACTICES
+
+As we expand our public internet footprint, I want to direct the team's
+attention to our internal security practices. The move to a networked,
+browser-accessible platform meaningfully increases our attack surface
+relative to the closed mainframe environment we are accustomed to. I am
+asking the team to invest more deliberately in security review as part
+of the development process — not as a checkpoint at the end of a
+project, but as an ongoing discipline throughout.
+
+Margaret has identified several areas for immediate attention, including
+a review of how we manage authentication credentials in the new
+platform. On that note — and I will keep this brief as the specific
+remediation steps are documented separately — the team should ensure
+that any development or convenience credentials that were introduced
+during the initial build and testing phases are reviewed and retired
+before the platform is considered production-ready. Leaving accounts
+provisioned for testing purposes active in a production environment is
+not consistent with our obligations to our customers or our regulators.
+Please treat this as an action item with near-term resolution.
+
+More broadly, I am asking Dennis to establish a recurring internal
+security review cycle for the iBank platform and to report findings to
+Margaret's team on a quarterly basis going forward.
+
+
+V. LOOKING AHEAD
+
+Our target remains a fully modernized, integrated core banking platform
+by the end of fiscal year 2001. That is an ambitious timeline given the
+scope of the work, and it will require sustained focus from this team.
+I am confident in your ability to deliver.
+
+Thank you for your continued dedication to this institution and to the
+customers who depend on us.
+
+Harold J. Whitmore
+President & Chief Executive Officer
+First National Savings Bank
+
+------------------------------------------------------------------------
+CONFIDENTIAL — FOR INTERNAL DISTRIBUTION ONLY
+This document contains proprietary information of First National Savings
+Bank. Do not distribute outside the organization.

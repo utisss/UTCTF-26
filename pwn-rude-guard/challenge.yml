@@ -1,0 +1,17 @@
+name: "Rude Guard"
+category: Binary Exploitation
+description: |
+  There's a guard that's protecting the flag! How do I sneak past him?
+
+  By Joel (@jayscx on discord)
+author: Joel
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{gu4rd_w4s_w34ker_th4n_i_th0ught}
+files:
+  - pwnable

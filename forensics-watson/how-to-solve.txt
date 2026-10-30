@@ -1,0 +1,7 @@
+To obtain the flag, you must pass through all of the checkpoints. The 
+checkpoints have all been encrypted with a password. The password for each 
+checkpoint can be found by answering the problems in the Briefing. After 
+completing each checkpoint, you will be given a part of the flag. Combine the 
+checkpoint hashes along with hyphens to obtain the flag. 
+
+Example: utflag{DEAD-BEEF}

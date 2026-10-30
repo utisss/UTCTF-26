@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- future: rollback old style of site + server code from backup files -->
+  <title>Flag Dispenser</title>
+  <style>
+    body {
+      background: #fff;
+      font-family: monospace;
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 0 20px;
+      color: #222;
+    }
+
+    h1 { font-size: 24px; margin-bottom: 20px; }
+
+    p { font-size: 13px; line-height: 1.8; color: #555; margin-bottom: 30px; }
+
+    #flagBtn {
+      display: block;
+      width: 100%;
+      height: 120px;
+      background: #00cc44;
+      border: none;
+      border-radius: 6px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      letter-spacing: 2px;
+    }
+
+    #flagBtn:hover { background: #00aa38; }
+
+    #flagBtn:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+
+    #countdown {
+      display: none;
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin: 20px 0;
+      color: #e67e00;
+    }
+
+    #statusBox {
+      display: none;
+      margin-top: 20px;
+      font-size: 13px;
+      padding: 14px;
+      border: 1px solid #ddd;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    #flagValue {
+      font-size: 15px;
+      font-weight: bold;
+      color: #00aa38;
+      margin-top: 8px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Flag Dispenser</h1>
+
+  <p>
+    Rules:<br>
+    1. Click GET FLAG to register your request.<br>
+    2. Wait the full 5-minute window without clicking again.<br>
+    3. Click GET FLAG a second time to collect your flag.<br>
+    4. If any other team also requests a flag during your window, both requests are cancelled and you must start over.
+  </p>
+
+  <div id="countdown" id="timerDisplay">5:00</div>
+
+  <button id="flagBtn" onclick="getFlag()">GET FLAG</button>
+
+  <div id="statusBox">
+    <span id="statusMsg"></span>
+    <div id="flagValue"></div>
+  </div>
+
+  <script>
+    let countdownInterval = null;
+
+    function showStatus(msg, flag) {
+      document.getElementById('statusBox').style.display = 'block';
+      document.getElementById('statusMsg').textContent = msg;
+      document.getElementById('flagValue').textContent = flag || '';
+    }
+
+    function startCountdown(seconds) {
+      const el = document.getElementById('countdown');
+      el.style.display = 'block';
+      let remaining = seconds;
+
+      clearInterval(countdownInterval);
+
+      function tick() {
+        const m = Math.floor(remaining / 60);
+        const s = remaining % 60;
+        el.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+        if (remaining <= 0) {
+          clearInterval(countdownInterval);
+          stopPolling();
+          el.style.display = 'none';
+          document.getElementById('flagBtn').disabled = false;
+          document.getElementById('flagBtn').textContent = 'GET FLAG';
+          showStatus('Window elapsed. Click GET FLAG to collect your flag.', '');
+        }
+        remaining--;
+      }
+
+      tick();
+      countdownInterval = setInterval(tick, 1000);
+    }
+
+    async function getFlag() {
+      const btn = document.getElementById('flagBtn');
+      btn.disabled = true;
+      btn.textContent = '...';
+
+      try {
+        const res = await fetch('/getFlag?f=flag.txt');
+        const ct  = res.headers.get('Content-Type') || '';
+
+        if (ct.includes('text/plain') || (!ct.includes('application/json') && res.ok)) {
+          const text = await res.text();
+          clearInterval(countdownInterval);
+          stopPolling();
+          document.getElementById('countdown').style.display = 'none';
+          showStatus('Flag captured:', text.trim());
+          btn.textContent = 'CLAIMED';
+          return;
+        }
+
+        const data = await res.json();
+
+        if (data.status === 'waiting' && data.wait_until) {
+          const remaining = data.wait_until - Math.floor(Date.now() / 1000);
+          showStatus(data.message, '');
+          btn.textContent = 'WAITING...';
+          startCountdown(Math.max(remaining, 0));
+          startPolling();
+
+        } else if (data.status === 'waiting') {
+          showStatus(data.message, '');
+          btn.disabled = false;
+          btn.textContent = 'GET FLAG';
+
+        } else if (data.status === 'cancelled') {
+          clearInterval(countdownInterval);
+          stopPolling();
+          document.getElementById('countdown').style.display = 'none';
+          showStatus(data.message, '');
+          btn.disabled = false;
+          btn.textContent = 'GET FLAG';
+
+        } else {
+          showStatus(data.message || 'Unknown error.', '');
+          btn.disabled = false;
+          btn.textContent = 'GET FLAG';
+        }
+
+      } catch (err) {
+        showStatus('Could not reach the server. Try again.', '');
+        btn.disabled = false;
+        btn.textContent = 'GET FLAG';
+      }
+    }
+
+    let pollInterval = null;
+
+    function startPolling() {
+      stopPolling();
+      pollInterval = setInterval(async () => {
+        try {
+          const res  = await fetch('/status');
+          const data = await res.json();
+
+          if (!data.has_pending) {
+            // Server no longer has our window — we were cancelled externally
+            stopPolling();
+            clearInterval(countdownInterval);
+            document.getElementById('countdown').style.display = 'none';
+            const btn = document.getElementById('flagBtn');
+            btn.disabled = false;
+            btn.textContent = 'GET FLAG';
+            showStatus('Your request was cancelled because another team entered the queue. Start over.', '');
+          }
+        } catch (_) {}
+      }, 5000); // poll every 5 seconds
+    }
+
+    function stopPolling() {
+      if (pollInterval) {
+        clearInterval(pollInterval);
+        pollInterval = null;
+      }
+    }
+
+    window.addEventListener('load', async () => {
+      try {
+        const res  = await fetch('/status');
+        const data = await res.json();
+        if (data.has_pending && data.remaining > 0) {
+          const btn = document.getElementById('flagBtn');
+          btn.disabled = true;
+          btn.textContent = 'WAITING...';
+          showStatus('You have a pending request. Wait for the countdown.', '');
+          startCountdown(data.remaining);
+          startPolling();
+        }
+      } catch (_) {}
+    });
+  </script>
+
+</body>
+</html>

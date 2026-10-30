@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AffiniTECH - The Future of Bitcoin Storage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Exo:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      font-family: 'Exo', sans-serif;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,165,0,0.03) 40px, rgba(255,165,0,0.03) 41px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,165,0,0.03) 40px, rgba(255,165,0,0.03) 41px);
+      min-height: 100vh;
+    }
+
+    /* ---- MARQUEE TICKER ---- */
+    .ticker {
+      background: linear-gradient(90deg, #f7931a, #e67e00);
+      color: #000;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 6px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker marquee { letter-spacing: 2px; }
+
+    /* ---- HEADER ---- */
+    header {
+      background: linear-gradient(180deg, #111 0%, #1a1a1a 100%);
+      border-bottom: 3px solid #f7931a;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 90px;
+      box-shadow: 0 4px 30px rgba(247,147,26,0.3);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-icon {
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg, #f7931a, #e67e00);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 900;
+      color: #000;
+      font-family: 'Orbitron', monospace;
+      box-shadow: 0 0 20px rgba(247,147,26,0.6), inset 0 1px 0 rgba(255,255,255,0.3);
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(247,147,26,0.6); }
+      50% { box-shadow: 0 0 40px rgba(247,147,26,1), 0 0 60px rgba(247,147,26,0.4); }
+    }
+
+    .logo-text h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: 28px;
+      font-weight: 900;
+      color: #f7931a;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px rgba(247,147,26,0.5);
+    }
+
+    .logo-text p {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: #888;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #f7931a; }
+
+    /* ---- HERO ---- */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 60px 40px;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-left { flex: 1.2; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(247,147,26,0.15);
+      border: 1px solid #f7931a;
+      color: #f7931a;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero-left h2 {
+      font-family: 'Orbitron', monospace;
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 40px rgba(247,147,26,0.2);
+    }
+
+    .hero-left h2 span { color: #f7931a; }
+
+    .hero-left p {
+      font-size: 15px;
+      color: #999;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      max-width: 480px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 10px;
+    }
+
+    .stat {
+      border-left: 3px solid #f7931a;
+      padding-left: 14px;
+    }
+
+    .stat-num {
+      font-family: 'Orbitron', monospace;
+      font-size: 22px;
+      color: #f7931a;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ---- LOGIN BOX ---- */
+    .login-box {
+      flex: 0 0 360px;
+      background: linear-gradient(160deg, #1a1a1a 0%, #111 100%);
+      border: 2px solid #f7931a;
+      border-radius: 4px;
+      padding: 36px;
+      box-shadow:
+        0 0 0 1px rgba(247,147,26,0.1),
+        0 20px 60px rgba(0,0,0,0.8),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #f7931a, transparent);
+      animation: scan 3s linear infinite;
+    }
+
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .login-box h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 16px;
+      color: #f7931a;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .login-box .login-sub {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .form-group input {
+      width: 100%;
+      background: #0d0d0d;
+      border: 1px solid #333;
+      border-radius: 2px;
+      color: #f7931a;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 14px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      letter-spacing: 1px;
+    }
+
+    .form-group input:focus {
+      border-color: #f7931a;
+      box-shadow: 0 0 12px rgba(247,147,26,0.2);
+    }
+
+    .form-group input::placeholder { color: #333; }
+
+    .otp-hint {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: #444;
+      margin-top: 6px;
+      letter-spacing: 1px;
+    }
+
+    .btn-login {
+      width: 100%;
+      background: linear-gradient(180deg, #f7931a 0%, #e07800 100%);
+      border: none;
+      border-radius: 2px;
+      color: #000;
+      font-family: 'Orbitron', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 14px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(247,147,26,0.4);
+    }
+
+    .btn-login:hover {
+      background: linear-gradient(180deg, #ffaa44 0%, #f7931a 100%);
+      box-shadow: 0 4px 30px rgba(247,147,26,0.7);
+      transform: translateY(-1px);
+    }
+
+    .btn-login:active { transform: translateY(0); }
+
+    #login-msg {
+      margin-top: 14px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      text-align: center;
+      min-height: 18px;
+      letter-spacing: 1px;
+    }
+
+    .login-footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 1px;
+    }
+
+    .login-footer a { color: #f7931a; text-decoration: none; }
+
+    /* ---- FEATURES ---- */
+    .features {
+      background: #111;
+      border-top: 1px solid #1f1f1f;
+      border-bottom: 1px solid #1f1f1f;
+      padding: 50px 60px;
+      margin-top: 20px;
+    }
+
+    .features-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .features h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 12px;
+      color: #555;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: #0d0d0d;
+      border: 1px solid #1f1f1f;
+      border-top: 2px solid #f7931a;
+      padding: 24px 20px;
+      transition: border-color 0.2s;
+    }
+
+    .feature-card:hover { border-color: #f7931a; }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h4 {
+      font-family: 'Orbitron', monospace;
+      font-size: 12px;
+      color: #f7931a;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* ---- TRUST BAR ---- */
+    .trust-bar {
+      background: #0a0a0a;
+      padding: 30px 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 2px;
+    }
+
+    .trust-item span:first-child { color: #f7931a; font-size: 16px; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background: #080808;
+      border-top: 1px solid #1a1a1a;
+      padding: 30px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: #333;
+      letter-spacing: 2px;
+    }
+
+    .footer-links a {
+      color: #444;
+      text-decoration: none;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-left: 20px;
+    }
+    .footer-links a:hover { color: #f7931a; }
+
+    /* ---- SCROLLING BTC ANIMATION ---- */
+    .btc-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+      opacity: 0.025;
+    }
+
+    .btc-float {
+      position: absolute;
+      font-family: 'Orbitron', monospace;
+      font-size: 120px;
+      color: #f7931a;
+      animation: float-up linear infinite;
+      user-select: none;
+    }
+
+    @keyframes float-up {
+      0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ---- OTP EXPLAINER IN HERO ---- */
+    .otp-explainer {
+      background: rgba(247,147,26,0.05);
+      border: 1px solid rgba(247,147,26,0.2);
+      border-left: 3px solid #f7931a;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      max-width: 480px;
+    }
+
+    .otp-exp-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: #f7931a;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    .otp-steps { display: flex; flex-direction: column; gap: 8px; }
+
+    .otp-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    .step-num {
+      font-family: 'Orbitron', monospace;
+      font-size: 10px;
+      color: #f7931a;
+      background: rgba(247,147,26,0.1);
+      border: 1px solid rgba(247,147,26,0.3);
+      padding: 2px 6px;
+      flex-shrink: 0;
+    }
+
+    /* ---- OTP BIG CLAIM ---- */
+    .otp-big-claim {
+      text-align: center;
+      font-family: 'Exo', sans-serif;
+      font-size: 16px;
+      color: #aaa;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-style: italic;
+      border: 1px solid #222;
+      border-top: 2px solid #f7931a;
+      padding: 24px;
+      background: rgba(247,147,26,0.03);
+    }
+
+    .otp-big-claim span { color: #f7931a; font-style: normal; font-weight: 600; }
+
+    .claim-attr {
+      font-size: 11px;
+      color: #555;
+      font-style: normal;
+      font-family: 'Share Tech Mono', monospace;
+      letter-spacing: 1px;
+      margin-top: 10px;
+    }
+
+    .otp-footnote {
+      text-align: center;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: #444;
+      margin-top: 30px;
+      letter-spacing: 1px;
+    }
+
+    /* ---- OTP DEEP DIVE ---- */
+    .otp-deep {
+      background: #0d0d0d;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 60px;
+    }
+
+    .otp-deep-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    .otp-deep-left { flex: 1; }
+    .otp-deep-right { flex: 1; }
+
+    .section-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: #f7931a;
+      letter-spacing: 4px;
+      margin-bottom: 14px;
+    }
+
+    .otp-deep-left h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .otp-deep-left h3 span { color: #f7931a; }
+
+    .otp-deep-left p {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .tech-specs {
+      margin-top: 24px;
+      border: 1px solid #1f1f1f;
+    }
+
+    .spec-row {
+      display: flex;
+      border-bottom: 1px solid #1a1a1a;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+    }
+
+    .spec-row:last-child { border-bottom: none; }
+
+    .spec-key {
+      background: #111;
+      color: #666;
+      padding: 10px 14px;
+      width: 180px;
+      flex-shrink: 0;
+      letter-spacing: 1px;
+      border-right: 1px solid #1f1f1f;
+    }
+
+    .spec-val {
+      color: #f7931a;
+      padding: 10px 14px;
+      letter-spacing: 1px;
+    }
+
+    /* ---- TERMINAL ---- */
+    .terminal-box {
+      background: #080808;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    }
+
+    .terminal-header {
+      background: #1e1e1e;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .t-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .t-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: #555;
+      margin-left: 8px;
+      letter-spacing: 1px;
+    }
+
+    .terminal-body {
+      padding: 20px 24px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .t-line { white-space: pre; }
+    .t-comment { color: #444; }
+    .t-kw { color: #cc99cd; }
+    .t-fn { color: #6fb3d2; }
+    .t-mod { color: #f7931a; }
+    .t-str { color: #7ec699; }
+    .t-output { color: #aaa; margin-top: 4px; }
+
+    .cursor {
+      animation: blink 1s step-end infinite;
+      color: #f7931a;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .main-content { position: relative; z-index: 1; }
+  </style>
+</head>
+<body>
+
+  <!-- Floating BTC background -->
+  <div class="btc-bg" id="btcBg"></div>
+
+  <!-- Ticker -->
+  <div class="ticker">
+    <marquee behavior="scroll" direction="left" scrollamount="4">
+      🔑 PASSWORDS ARE DEAD — AFFINTECH OTP v1.0 HAS ARRIVED &nbsp;|&nbsp;
+      ₿ BTC/USD: $127.42 &nbsp;▲ 3.2%&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      AFFINKEY™ OTP: 100% HOMEGROWN. 100% UNHACKABLE.&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      NO PASSWORDS. NO PROBLEM. NO EXCUSES.&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      AFFINTECH WALLETS SECURED: 48,291&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      WE WROTE THE OTP ALGORITHM OURSELVES. IN A WEEKEND.&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      FORGET "password123" FOREVER &nbsp;|&nbsp;
+      EPOCH-BASED CRYPTO AUTH — THE FUTURE IS NOW&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      NO BANKS. NO PASSWORDS. NO LIMITS.&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    </marquee>
+  </div>
+
+  <div class="main-content">
+
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <div class="logo-icon">₿</div>
+        <div class="logo-text">
+          <h1>AffiniTECH</h1>
+          <p>Secure Bitcoin Wallet &amp; Storage</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Security</a>
+        <a href="#">About</a>
+        <a href="#">Forum</a>
+        <a href="#">Register</a>
+      </nav>
+    </header>
+
+    <!-- Hero + Login -->
+    <div class="hero">
+      <div class="hero-left">
+        <div class="hero-badge">★ INTRODUCING AFFINKEY™ OTP — PASSWORDS R.I.P. ★</div>
+        <h2>We <span>KILLED</span> The<br>Password.<br>You're Welcome.</h2>
+        <p>
+          Forget everything you know about login security. AffiniTECH's in-house engineering
+          team built <strong style="color:#f7931a">AffinKey™</strong> —
+          our proprietary one-time passcode system that makes passwords completely obsolete.
+          No more "forgot password" links. No more sticky notes on your monitor.
+          The secret ingredient? <em style="color:#f7931a">Time itself.</em>
+          That's all we're saying. Don't ask questions.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">0</div>
+            <div class="stat-label">Passwords Used</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Unique Codes</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Homemade Code</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div class="login-box">
+        <h3>Vault Access</h3>
+        <div class="login-sub">// Secure Login Terminal //</div>
+
+        <div class="form-group">
+          <label>↳ Username / Wallet ID</label>
+          <input type="text" id="username" placeholder="satoshi_nakamoto" autocomplete="off" spellcheck="false">
+        </div>
+
+        <div class="form-group">
+          <label>↳ One-Time Passcode (OTP)</label>
+          <input type="text" id="otp" placeholder="● ● ● ● ● ●" autocomplete="off" spellcheck="false" maxlength="10">
+          <div class="otp-hint">// Request your AffinKey™ OTP via the debug endpoint</div>
+        </div>
+
+        <button class="btn-login" onclick="doLogin()">INITIATE LOGIN →</button>
+
+        <div id="login-msg"></div>
+
+        <div class="login-footer">
+          No account? <a href="#">Register a free wallet</a><br><br>
+          <a href="#">Lost OTP device?</a> &nbsp;|&nbsp; <a href="#">2FA Help</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="features">
+      <div class="features-inner">
+        <h3>// WHY AFFINKEY™ OTP DESTROYS ALL OTHER AUTH SYSTEMS //</h3>
+        <div class="otp-big-claim">
+          "We looked at TOTP, HOTP, and RSA SecurID — and decided we could do better.<br>
+          So we did. <span>In-house. From scratch. No outside libraries.</span>"
+          <div class="claim-attr">— The AffiniTECH Engineering Team (2 guys, 1 weekend)</div>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⏱️</div>
+            <h4>Time-Powered</h4>
+            <p>AffinKey™'s secret ingredient is time. That's all we'll say. Something is always ticking, and our algorithm is listening. Every code is unique. Every code expires. Deal with it.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h4>Proprietary Algorithm</h4>
+            <p>We wrote the hashing logic ourselves. No off-the-shelf nonsense. Our algorithm is so custom it doesn't even have a name yet. (Working on it.)</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🪦</div>
+            <h4>Passwords: Deceased</h4>
+            <p>"password123", "bitcoin4ever", "ilovesatoshi" — all dead. AffinKey™ means you never type a password again. Not even a weak one.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔬</div>
+            <h4>Peer Reviewed*</h4>
+            <p>Our algorithm was reviewed by our colleague Dave, who has a CS degree from DeVry. He said, and we quote: "yeah this looks pretty secure to me."</p>
+          </div>
+        </div>
+        <div class="otp-footnote">* Internal peer review only. External audits coming soon (probably).</div>
+      </div>
+    </div>
+
+    <!-- OTP Deep Dive Section -->
+    <div class="otp-deep">
+      <div class="otp-deep-inner">
+        <div class="otp-deep-left">
+          <div class="section-label">// TECHNICAL DEEP DIVE //</div>
+          <h3>The Science Behind<br><span>AffinKey™</span></h3>
+          <p>Traditional passwords are static. Static = hackable. AffinKey™ is dynamic, always changing, and regenerated on every single authentication request. There is literally no attack surface. We checked.</p>
+          <p>How does it work? We're not telling you. That's the point. What we <em>can</em> say is that somewhere in the universe, something is ticking — and AffinKey™ listens to it. By the time a hacker figures out what that means, they'll already be too late.</p>
+          <div class="tech-specs">
+            <div class="spec-row"><span class="spec-key">Algorithm:</span><span class="spec-val">Proprietary (AT-OTP-1)</span></div>
+            <div class="spec-row"><span class="spec-key">Secret Ingredient:</span><span class="spec-val">Time. That's all you get.</span></div>
+            <div class="spec-row"><span class="spec-key">Token Length:</span><span class="spec-val">[DEPENDS]</span></div>
+            <div class="spec-row"><span class="spec-key">Token Lifetime:</span><span class="spec-val">[REDACTED]</span></div>
+            <div class="spec-row"><span class="spec-key">Implementation:</span><span class="spec-val">[CLASSIFIED]</span></div>
+            <div class="spec-row"><span class="spec-key">Third-Party Libs:</span><span class="spec-val">None. Zero. We don't trust them.</span></div>
+            <div class="spec-row"><span class="spec-key">NSA Backdoors:</span><span class="spec-val">Definitely not (we wrote it ourselves)</span></div>
+          </div>
+        </div>
+        <div class="otp-deep-right">
+          <div class="terminal-box">
+            <div class="terminal-header">
+              <span class="t-dot" style="background:#ff5f57"></span>
+              <span class="t-dot" style="background:#febc2e"></span>
+              <span class="t-dot" style="background:#28c840"></span>
+              <span class="t-title">vaultkey_demo.py</span>
+            </div>
+            <div class="terminal-body">
+              <div class="t-line"><span class="t-comment"># AffinKey™ OTP — AffiniTECH Proprietary</span></div>
+              <div class="t-line"><span class="t-comment"># [SOURCE REDACTED FOR SECURITY]</span></div>
+              <div class="t-line">&nbsp;</div>
+              <div class="t-line"><span class="t-kw">import</span> <span class="t-mod">[REDACTED]</span></div>
+              <div class="t-line">&nbsp;</div>
+              <div class="t-line"><span class="t-kw">def</span> <span class="t-fn">generate_otp</span>(username):</div>
+              <div class="t-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-comment"># [REDACTED — PROPRIETARY]</span></div>
+              <div class="t-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-comment"># [REDACTED — PROPRIETARY]</span></div>
+              <div class="t-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-kw">return</span> secure_token</div>
+              <div class="t-line">&nbsp;</div>
+              <div class="t-line"><span class="t-comment"># Usage:</span></div>
+              <div class="t-line">otp = generate_otp(<span class="t-str">"satoshi"</span>)</div>
+              <div class="t-line"><span class="t-fn">print</span>(<span class="t-str">f"Your AffinKey™: </span><span class="t-mod">{otp}</span><span class="t-str">"</span>)</div>
+              <div class="t-line">&nbsp;</div>
+              <div class="t-line t-output">&gt;&gt;&gt; Your AffinKey™: <span id="demoOtp">482916</span></div>
+              <div class="t-line t-output t-blink">&gt;&gt;&gt; <span class="cursor">█</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust bar -->
+    <div class="trust-bar">
+      <div class="trust-item"><span>✔</span><span>ZERO PASSWORDS STORED</span></div>
+      <div class="trust-item"><span>✔</span><span>100% HOMEMADE OTP</span></div>
+      <div class="trust-item"><span>✔</span><span>EPOCH-SYNCHRONIZED</span></div>
+      <div class="trust-item"><span>✔</span><span>NO THIRD-PARTY LIBS</span></div>
+      <div class="trust-item"><span>✔</span><span>DAVE-APPROVED™</span></div>
+      <div class="trust-item"><span>✔</span><span>AS SEEN ON REDDIT /r/bitcoin</span></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2013 AFFINTECH LLC — DECENTRALIZED FINANCIAL SOVEREIGNTY</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">PGP Key</a>
+        <a href="#">Source</a>
+        <a href="#">Contact</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Floating ₿ background
+    const bg = document.getElementById('btcBg');
+    for (let i = 0; i < 8; i++) {
+      const el = document.createElement('div');
+      el.className = 'btc-float';
+      el.textContent = '₿';
+      el.style.left = (Math.random() * 100) + '%';
+      el.style.animationDuration = (12 + Math.random() * 20) + 's';
+      el.style.animationDelay = (-Math.random() * 30) + 's';
+      el.style.fontSize = (60 + Math.random() * 120) + 'px';
+      bg.appendChild(el);
+    }
+
+    // Login handler
+    async function doLogin() {
+      const username = document.getElementById('username').value.trim();
+      const otp = document.getElementById('otp').value.trim();
+      const msg = document.getElementById('login-msg');
+
+      if (!username || !otp) {
+        msg.style.color = '#ff4444';
+        msg.textContent = '⚠ ALL FIELDS REQUIRED';
+        return;
+      }
+
+      msg.style.color = '#f7931a';
+      msg.textContent = '[ AUTHENTICATING... ]';
+
+      try {
+        const response = await fetch('/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, otp })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          msg.style.color = '#44ff88';
+          msg.textContent = '✔ ACCESS GRANTED — REDIRECTING';
+          setTimeout(() => { window.location.href = '/portal'; }, 1000);
+        } else {
+          msg.style.color = '#ff4444';
+          msg.textContent = '✘ ' + (data.message || 'AUTHENTICATION FAILED');
+        }
+      } catch (err) {
+        msg.style.color = '#ff4444';
+        msg.textContent = '✘ CONNECTION ERROR — TRY AGAIN';
+      }
+    }
+
+    // Cycle demo OTP number in terminal to look live
+    function randOtp() { return String(Math.floor(100000 + Math.random() * 900000)); }
+    setInterval(() => {
+      const el = document.getElementById('demoOtp');
+      if (el) el.textContent = randOtp();
+    }, 4000);
+
+    // Allow Enter key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') doLogin();
+    });
+  </script>
+
+</body>
+</html>

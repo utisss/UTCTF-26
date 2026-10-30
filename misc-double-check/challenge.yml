@@ -1,0 +1,19 @@
+name: "Double Check"
+category: Misc
+description: |
+  We're planning on deploying some new static sites for our officers. We've
+  cloned a template from Hugo's Static Site Generator (SSG). Can you make sure
+  that our website is clean before it's deployed?
+
+  https://github.com/Jarpiano/utctf-profile
+
+  By Jared (@jarpiano on discord)
+author: Jared
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{n07h1n6_70_h1d3}

@@ -1,0 +1,16 @@
+name: "Breadcrumbs"
+category: Misc
+description: |
+  Every trail has a beginning. This one starts here:
+  https://gist.github.com/garvk07/3f9c505068c011e0fd6abd9ddf56aecb
+  Follow the breadcrumbs. The flag is at the end.
+  By Garv (@GarvK07 on discord)
+author: Garv
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{f0ll0w1ng_th3_cr4wl_tr41l}

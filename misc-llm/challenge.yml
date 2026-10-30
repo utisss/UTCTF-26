@@ -1,0 +1,16 @@
+name: "Mind the Gap (in the guardrails)"
+category: Misc
+description: |
+  See if you can convince this chatbot to spill its secrets.
+
+  By Caleb (@eden.caleb.a on discord)
+author: Caleb
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+connection_info: nc challenge.utctf.live 5620
+flags:
+  - flag{alignment_is_just_a_suggestion}
+  - utflag{alignment_is_just_a_suggestion}

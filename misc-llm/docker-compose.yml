@@ -1,0 +1,30 @@
+services:
+  misc-llm:
+    build:
+      context: .
+      args:
+        FLAG: "flag{alignment_is_just_a_suggestion}"
+    environment:
+      - CF_API_KEY=${CF_API_KEY}
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: 1g
+        max-file: "1"
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 1G
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import socket; s=socket.create_connection(('localhost',9000),2); s.close()\""]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    ports:
+      - 5620:9000
+    read_only: true
+    tmpfs:
+      - /tmp

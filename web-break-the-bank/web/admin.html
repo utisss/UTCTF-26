@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="description" content="FNSB Internal Systems Administration Console">
+    <title>FNSB SysAdmin Console v2.1 [RESTRICTED]</title>
+    <style type="text/css">
+
+        body {
+            background-color: #000000;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 12px;
+            color: #00ff00;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ---- TOP BAR ---- */
+        .top-bar {
+            background-color: #001100;
+            border-bottom: 2px solid #00ff00;
+            padding: 0;
+        }
+        .top-bar-inner {
+            display: table;
+            width: 100%;
+        }
+        .top-bar-left {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 6px 12px;
+        }
+        .top-bar-right {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+            padding: 6px 12px;
+            font-size: 10px;
+            color: #007700;
+        }
+        .sys-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #00ff00;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .sys-subtitle {
+            font-size: 10px;
+            color: #007700;
+            display: block;
+            letter-spacing: 2px;
+        }
+
+        .blink { animation: blinker 1s step-start infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* ---- ALERT STRIP ---- */
+        .alert-strip {
+            background-color: #001a00;
+            border-bottom: 1px solid #005500;
+            color: #ffff00;
+            font-size: 10px;
+            padding: 2px 12px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .alert-inner {
+            display: inline-block;
+            animation: ticker 40s linear infinite;
+        }
+        @keyframes ticker {
+            0%   { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* ---- NAV BAR ---- */
+        .navbar {
+            background-color: #001100;
+            border-bottom: 1px solid #005500;
+            padding: 0;
+            font-size: 11px;
+        }
+        .navbar a {
+            color: #00cc00;
+            text-decoration: none;
+            display: inline-block;
+            padding: 4px 14px;
+            border-right: 1px solid #003300;
+            letter-spacing: 1px;
+        }
+        .navbar a:first-child { border-left: 1px solid #003300; }
+        .navbar a:hover       { background-color: #002200; color: #00ff00; }
+        .navbar a.active      { color: #00ff00; background-color: #003300; border-bottom: 2px solid #00ff00; }
+
+        /* ---- PAGE WRAPPER ---- */
+        .page-wrapper { width: 980px; margin: 10px auto; }
+
+        /* ---- LAYOUT ---- */
+        .layout-table { width: 100%; border-collapse: collapse; }
+        .sidebar      { width: 210px; vertical-align: top; padding-right: 10px; }
+        .main-content { vertical-align: top; }
+
+        /* ---- PANEL ---- */
+        .panel {
+            border: 1px solid #005500;
+            background-color: #000a00;
+            margin-bottom: 10px;
+        }
+        .panel-title {
+            background-color: #001a00;
+            color: #00ff00;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-bottom: 1px solid #005500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .panel-title .panel-status {
+            font-size: 9px;
+            color: #007700;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        .panel-body { padding: 8px 10px; }
+
+        /* ---- SIDEBAR NAV ---- */
+        .side-menu a {
+            display: block;
+            color: #00aa00;
+            text-decoration: none;
+            font-size: 11px;
+            padding: 3px 4px;
+            border-bottom: 1px dotted #003300;
+            letter-spacing: 1px;
+        }
+        .side-menu a:hover        { color: #00ff00; background-color: #001a00; }
+        .side-menu a.active-item  { color: #00ff00; font-weight: bold; }
+        .side-menu-section {
+            color: #005500;
+            font-size: 10px;
+            padding: 5px 4px 2px 4px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ---- SYS STATUS TABLE ---- */
+        .status-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+        }
+        .status-table td {
+            padding: 3px 6px;
+            border: 1px solid #002200;
+        }
+        .status-table tr:nth-child(even) td { background-color: #001100; }
+        .status-table td.label { color: #007700; width: 38%; }
+        .status-table td.value { color: #00ff00; font-family: "Courier New", monospace; }
+        .status-table td.ok    { color: #00ff00; }
+        .status-table td.warn  { color: #ffaa00; }
+        .status-table td.crit  { color: #ff4444; }
+
+        /* ---- PROGRESS BAR ---- */
+        .progress-wrap {
+            background-color: #001100;
+            border: 1px solid #004400;
+            height: 10px;
+            width: 100%;
+            margin: 2px 0;
+        }
+        .progress-fill {
+            height: 10px;
+            background-color: #00aa00;
+        }
+        .progress-fill.warn { background-color: #aaaa00; }
+        .progress-fill.crit { background-color: #aa0000; }
+
+        /* ---- LOG WINDOW ---- */
+        .log-window {
+            background-color: #000500;
+            border: 1px solid #004400;
+            height: 140px;
+            overflow-y: scroll;
+            padding: 6px;
+            font-size: 10px;
+            line-height: 1.6;
+            color: #00cc00;
+        }
+        .log-ts   { color: #004400; }
+        .log-err  { color: #ff4444; }
+        .log-warn { color: #ffaa00; }
+        .log-info { color: #00cc00; }
+        .log-ok   { color: #00ff88; }
+
+        /* ---- PROCESS TABLE ---- */
+        .proc-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10px;
+        }
+        .proc-table th {
+            background-color: #002200;
+            color: #007700;
+            padding: 3px 6px;
+            text-align: left;
+            border: 1px solid #004400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: normal;
+        }
+        .proc-table td {
+            padding: 2px 6px;
+            border: 1px solid #002200;
+            color: #00cc00;
+        }
+        .proc-table tr:nth-child(even) td { background-color: #000d00; }
+        .proc-table td.pid   { color: #007700; }
+        .proc-table td.cpu   { color: #00ff00; }
+        .proc-table td.mem   { color: #00cc88; }
+        .proc-table td.run   { color: #00ff88; }
+        .proc-table td.sleep { color: #005500; }
+
+        /* ---- FLAG BOX ---- */
+        .flag-box {
+            background-color: #000d00;
+            border: 1px solid #00ff00;
+            padding: 10px 14px;
+            margin-bottom: 10px;
+        }
+        .flag-box-title {
+            color: #ffff00;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #005500;
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+        }
+        .flag-value {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 15px;
+            font-weight: bold;
+            color: #00ff00;
+            background-color: #001100;
+            border: 1px solid #005500;
+            padding: 6px 10px;
+            letter-spacing: 2px;
+            word-break: break-all;
+            display: block;
+        }
+        .flag-meta {
+            font-size: 10px;
+            color: #005500;
+            margin-top: 6px;
+        }
+
+        /* ---- FORM ELEMENTS ---- */
+        .admin-input {
+            background-color: #001100;
+            border: 1px solid #004400;
+            color: #00ff00;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 11px;
+            padding: 3px 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .admin-input:focus { outline: 1px solid #00ff00; }
+        .admin-btn {
+            background-color: #002200;
+            border: 1px solid #005500;
+            color: #00ff00;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 11px;
+            padding: 3px 12px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+        .admin-btn:hover  { background-color: #003300; border-color: #00ff00; }
+        .admin-btn:active { background-color: #001100; }
+        .admin-btn.danger { border-color: #550000; color: #ff4444; }
+        .admin-btn.danger:hover { background-color: #1a0000; border-color: #ff0000; }
+
+        /* ---- DB TABLE ---- */
+        .db-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10px;
+        }
+        .db-table th {
+            background-color: #002200;
+            color: #007700;
+            padding: 3px 8px;
+            text-align: left;
+            border: 1px solid #004400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: normal;
+        }
+        .db-table td {
+            padding: 3px 8px;
+            border: 1px solid #002200;
+            color: #00cc00;
+        }
+        .db-table tr:nth-child(even) td { background-color: #000d00; }
+        .db-table td.redacted { color: #005500; letter-spacing: 2px; }
+
+        /* ---- FOOTER ---- */
+        .footer {
+            border-top: 1px solid #003300;
+            color: #004400;
+            font-size: 10px;
+            text-align: center;
+            padding: 8px;
+            margin-top: 14px;
+            letter-spacing: 1px;
+        }
+        .footer a { color: #007700; }
+
+        hr.green {
+            border: none;
+            border-top: 1px solid #003300;
+            margin: 6px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BAR
+============================================================ -->
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div class="top-bar-left">
+            <span class="sys-title">&#9608; FNSB &mdash; Internal Systems Console</span>
+            <span class="sys-subtitle">SysAdmin Portal v2.1.4 &nbsp;|&nbsp; MAINFRAME-B &nbsp;|&nbsp; RESTRICTED ACCESS</span>
+        </div>
+        <div class="top-bar-right">
+            <span class="blink">&#9646;</span> SESSION ACTIVE &nbsp;|&nbsp; UID: root &nbsp;|&nbsp; HOST: sysadm01.fnsb.internal<br>
+            UPTIME: 847d 14h 32m &nbsp;|&nbsp; LOAD: 0.42 0.38 0.31<br>
+            <a href="/logout" style="color:#ff4444; text-decoration:none; font-size:10px;">[ TERMINATE SESSION ]</a>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     TICKER
+============================================================ -->
+<div class="alert-strip">
+  <span class="alert-inner">
+    &nbsp;&nbsp;&nbsp;
+    [NOTICE] Scheduled maintenance window: SAT 01:00-03:00 CT &nbsp;***&nbsp;
+    [INFO] DB-PRIMARY replication lag: 0.003s &nbsp;***&nbsp;
+    [INFO] Nightly batch job ACCT_RECONCILE completed 11/02/1997 02:14:09 &mdash; 0 errors &nbsp;***&nbsp;
+    [WARN] TAPE-DRIVE-4 write speed degraded &mdash; ticket #INC-00419 open &nbsp;***&nbsp;
+    [INFO] Y2K remediation: 71% complete &mdash; see project MGMT-2000 &nbsp;***&nbsp;
+    [INFO] ACH settlement batch 19971103A processed &mdash; 14,822 items / $4.1M &nbsp;***&nbsp;
+    [NOTICE] New SSL cert deployed to ibank01 &mdash; expires 11/03/1999 &nbsp;***&nbsp;
+  </span>
+</div>
+
+<!-- ============================================================
+     NAV BAR
+============================================================ -->
+<div class="navbar">
+    <a href="#" class="active">Dashboard</a>
+    <a href="#">User Mgmt</a>
+    <a href="#">DB Console</a>
+    <a href="#">Network</a>
+    <a href="#">Audit Log</a>
+    <a href="#">Backups</a>
+    <a href="#">ACH/Wire</a>
+    <a href="#">Y2K Status</a>
+    <a href="#">Config</a>
+    <a href="/logout" style="color:#ff6666;">Logout</a>
+</div>
+
+<!-- ============================================================
+     PAGE WRAPPER
+============================================================ -->
+<div class="page-wrapper">
+
+    <table class="layout-table">
+        <tr>
+
+            <!-- ==================== SIDEBAR ==================== -->
+            <td class="sidebar">
+
+                <div class="panel">
+                    <div class="panel-title">SYSTEM MODULES</div>
+                    <div class="panel-body" style="padding:4px 0;">
+                        <div class="side-menu">
+                            <div class="side-menu-section">&#9658; Core</div>
+                            <a href="#" class="active-item">&#9658; Dashboard</a>
+                            <a href="#">&#9658; Sys Status</a>
+                            <a href="#">&#9658; Process List</a>
+                            <a href="#">&#9658; Event Log</a>
+
+                            <div class="side-menu-section">&#9658; Banking</div>
+                            <a href="#">&#9658; Account DB</a>
+                            <a href="#">&#9658; Transactions</a>
+                            <a href="#">&#9658; ACH Batches</a>
+                            <a href="#">&#9658; Wire Transfers</a>
+                            <a href="#">&#9658; Loan Ledger</a>
+                            <a href="#">&#9658; Interest Calc</a>
+
+                            <div class="side-menu-section">&#9658; Admin</div>
+                            <a href="#">&#9658; User Manager</a>
+                            <a href="#">&#9658; Role / Perms</a>
+                            <a href="#">&#9658; Audit Trail</a>
+                            <a href="#">&#9658; Backup Mgr</a>
+                            <a href="#">&#9658; SSL Certs</a>
+                            <a href="#">&#9658; SMTP Config</a>
+
+                            <div class="side-menu-section">&#9658; Reports</div>
+                            <a href="#">&#9658; Daily EOD</a>
+                            <a href="#">&#9658; Reg Reports</a>
+                            <a href="#">&#9658; FDIC 5300</a>
+                            <a href="#">&#9658; Y2K Audit</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick exec -->
+                <div class="panel">
+                    <div class="panel-title">QUICK EXEC</div>
+                    <div class="panel-body">
+                        <div style="font-size:10px; color:#007700; margin-bottom:4px;">Shell command:</div>
+                        <input type="text" class="admin-input" value="ps aux | grep java" readonly>
+                        <button class="admin-btn" style="width:100%; margin-top:4px;">[EXECUTE]</button>
+                        <div style="font-size:9px; color:#004400; margin-top:4px;">
+                            Last exit code: <span style="color:#00ff88;">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clock -->
+                <div class="panel">
+                    <div class="panel-title">SERVER TIME</div>
+                    <div class="panel-body" style="text-align:center;">
+                        <div style="font-size:18px; color:#00ff00; letter-spacing:3px;" id="clk">11/03/1997</div>
+                        <div style="font-size:22px; color:#00ff88; letter-spacing:4px;" id="clktime">10:31:04</div>
+                        <div style="font-size:9px; color:#005500; margin-top:2px;">UTC-6 (CST) &bull; NTP: synced</div>
+                    </div>
+                </div>
+
+            </td>
+
+            <!-- ==================== MAIN CONTENT ==================== -->
+            <td class="main-content">
+
+                <!-- ===== FLAG BOX ===== -->
+                <div class="flag-box">
+                    <div class="flag-box-title">&#9632; SYSTEM MASTER KEY / ACCESS TOKEN</div>
+                    <span class="flag-value">{{flag}}</span>
+                    <div class="flag-meta">
+                        KEY-ID: FNSB-MKEY-001 &nbsp;|&nbsp; GENERATED: 11/01/1997 00:00:01 &nbsp;|&nbsp;
+                        ALGO: AES-256 &nbsp;|&nbsp; CLEARANCE: LEVEL-5 &nbsp;|&nbsp;
+                        OWNER: root@sysadm01.fnsb.internal
+                    </div>
+                </div>
+
+                <!-- ===== SYSTEM STATUS ===== -->
+                <div class="panel">
+                    <div class="panel-title">
+                        SYSTEM STATUS — MAINFRAME-B
+                        <span class="panel-status"><span class="blink">&#9646;</span> LIVE &nbsp;| refreshed 10:31:04</span>
+                    </div>
+                    <div class="panel-body">
+                        <table style="width:100%; border-collapse:collapse;">
+                            <tr>
+                                <td style="width:50%; vertical-align:top; padding-right:8px;">
+                                    <table class="status-table">
+                                        <tr><td class="label">HOSTNAME</td><td class="value ok">MAINFRAME-B</td></tr>
+                                        <tr><td class="label">OS</td><td class="value">SunOS 5.6 (Solaris)</td></tr>
+                                        <tr><td class="label">KERNEL</td><td class="value">5.6 Generic_105181-05</td></tr>
+                                        <tr><td class="label">CPU</td><td class="value ok">UltraSPARC-II 296MHz</td></tr>
+                                        <tr><td class="label">UPTIME</td><td class="value ok">847d 14h 32m</td></tr>
+                                        <tr><td class="label">LOAD AVG</td><td class="value ok">0.42 / 0.38 / 0.31</td></tr>
+                                        <tr><td class="label">JAVA VM</td><td class="value">JDK 1.1.6 / HotJava</td></tr>
+                                        <tr><td class="label">APP SERVER</td><td class="value ok">FNSB-iBank v2.1.4</td></tr>
+                                    </table>
+                                </td>
+                                <td style="width:50%; vertical-align:top;">
+                                    <table class="status-table">
+                                        <tr><td class="label">CPU UTIL</td><td class="value">
+                                            <div class="progress-wrap"><div class="progress-fill" style="width:18%;"></div></div>
+                                            18%
+                                        </td></tr>
+                                        <tr><td class="label">MEM USED</td><td class="value">
+                                            <div class="progress-wrap"><div class="progress-fill warn" style="width:64%;"></div></div>
+                                            64% &nbsp; (512MB / 800MB)
+                                        </td></tr>
+                                        <tr><td class="label">SWAP</td><td class="value">
+                                            <div class="progress-wrap"><div class="progress-fill" style="width:22%;"></div></div>
+                                            22%
+                                        </td></tr>
+                                        <tr><td class="label">DISK /</td><td class="value">
+                                            <div class="progress-wrap"><div class="progress-fill warn" style="width:71%;"></div></div>
+                                            71% &nbsp; (35.5GB / 50GB)
+                                        </td></tr>
+                                        <tr><td class="label">DISK /data</td><td class="value">
+                                            <div class="progress-wrap"><div class="progress-fill" style="width:44%;"></div></div>
+                                            44% &nbsp; (220GB / 500GB)
+                                        </td></tr>
+                                        <tr><td class="label">NETWORK IN</td><td class="value ok">1.2 MB/s</td></tr>
+                                        <tr><td class="label">NETWORK OUT</td><td class="value ok">0.8 MB/s</td></tr>
+                                        <tr><td class="label">OPEN SOCKETS</td><td class="value ok">247</td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Process list + System log side by side -->
+                <table style="width:100%; border-collapse:collapse; margin-bottom:10px;">
+                    <tr>
+                        <td style="width:55%; vertical-align:top; padding-right:8px;">
+                            <div class="panel">
+                                <div class="panel-title">TOP PROCESSES <span class="panel-status">(by CPU)</span></div>
+                                <div class="panel-body" style="padding:6px;">
+                                    <table class="proc-table">
+                                        <thead>
+                                        <tr>
+                                            <th>PID</th><th>USER</th><th>CPU%</th><th>MEM%</th><th>STATE</th><th>COMMAND</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr><td class="pid">18441</td><td>ibank</td><td class="cpu">4.2</td><td class="mem">12.1</td><td class="run">RUN</td><td>java iBank-2.1.4</td></tr>
+                                        <tr><td class="pid">18109</td><td>oracle</td><td class="cpu">3.8</td><td class="mem">18.4</td><td class="run">RUN</td><td>oracle (FNSBPROD)</td></tr>
+                                        <tr><td class="pid">20014</td><td>root</td><td class="cpu">1.1</td><td class="mem">0.4</td><td class="run">RUN</td><td>syslogd</td></tr>
+                                        <tr><td class="pid">20118</td><td>ach</td><td class="cpu">0.9</td><td class="mem">2.2</td><td class="run">RUN</td><td>ach_gateway_d</td></tr>
+                                        <tr><td class="pid">19882</td><td>netsvcs</td><td class="cpu">0.7</td><td class="mem">1.1</td><td class="run">RUN</td><td>ssl_proxy</td></tr>
+                                        <tr><td class="pid">17003</td><td>backup</td><td class="cpu">0.4</td><td class="mem">0.8</td><td class="sleep">SLP</td><td>tape_daemon</td></tr>
+                                        <tr><td class="pid">12001</td><td>smtp</td><td class="cpu">0.2</td><td class="mem">0.5</td><td class="sleep">SLP</td><td>sendmail</td></tr>
+                                        <tr><td class="pid">10042</td><td>ntp</td><td class="cpu">0.0</td><td class="mem">0.1</td><td class="sleep">SLP</td><td>ntpd</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                        <td style="width:45%; vertical-align:top;">
+                            <div class="panel">
+                                <div class="panel-title">SYSTEM EVENT LOG <span class="panel-status">(last 15 entries)</span></div>
+                                <div class="panel-body" style="padding:4px;">
+                                    <div class="log-window">
+                                        <div><span class="log-ts">1997-11-03 10:31:01</span> <span class="log-ok">[OK]</span>    <span class="log-info">Heartbeat check passed — all services nominal</span></div>
+                                        <div><span class="log-ts">1997-11-03 10:28:44</span> <span class="log-info">[INFO]</span>  HTTP session established — src 198.41.0.22:1094</div>
+                                        <div><span class="log-ts">1997-11-03 10:27:09</span> <span class="log-warn">[WARN]</span>  TAPE-DRIVE-4: write retry x3 — block 0x4AF2</div>
+                                        <div><span class="log-ts">1997-11-03 10:15:00</span> <span class="log-ok">[OK]</span>    Oracle FNSBPROD checkpoint complete (scn=8841221)</div>
+                                        <div><span class="log-ts">1997-11-03 10:00:02</span> <span class="log-info">[INFO]</span>  ACH batch 19971103B — 6,441 items staged</div>
+                                        <div><span class="log-ts">1997-11-03 09:58:17</span> <span class="log-err">[ERR]</span>   Failed login attempt — user: admin — src 198.0.0.14</div>
+                                        <div><span class="log-ts">1997-11-03 09:58:11</span> <span class="log-err">[ERR]</span>   Failed login attempt — user: admin — src 198.0.0.14</div>
+                                        <div><span class="log-ts">1997-11-03 09:45:00</span> <span class="log-ok">[OK]</span>    NTP sync: offset=+0.0041s stratum=2 peer=time.nist.gov</div>
+                                        <div><span class="log-ts">1997-11-03 09:30:01</span> <span class="log-info">[INFO]</span>  SSL cert renewal check — next expiry 1999-11-03</div>
+                                        <div><span class="log-ts">1997-11-03 08:00:00</span> <span class="log-ok">[OK]</span>    Nightly tape backup verified — vol FNSBDB-971103</div>
+                                        <div><span class="log-ts">1997-11-03 02:14:09</span> <span class="log-ok">[OK]</span>    ACCT_RECONCILE batch complete — 0 discrepancies</div>
+                                        <div><span class="log-ts">1997-11-03 02:00:00</span> <span class="log-info">[INFO]</span>  DB stats gather — FNSBPROD.ACCOUNTS (14,441 rows)</div>
+                                        <div><span class="log-ts">1997-11-03 01:00:00</span> <span class="log-info">[INFO]</span>  BEGIN maintenance window — non-critical svcs suspended</div>
+                                        <div><span class="log-ts">1997-11-03 00:30:01</span> <span class="log-warn">[WARN]</span>  MEM utilization crossed 60% threshold — ibank heap</div>
+                                        <div><span class="log-ts">1997-11-02 23:59:59</span> <span class="log-ok">[OK]</span>    EOD settlement complete — net: $4,182,441.07</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- DB Status + User table side by side -->
+                <table style="width:100%; border-collapse:collapse;">
+                    <tr>
+                        <td style="width:50%; vertical-align:top; padding-right:8px;">
+                            <div class="panel">
+                                <div class="panel-title">DATABASE STATUS — FNSBPROD (Oracle 7.3)</div>
+                                <div class="panel-body">
+                                    <table class="status-table" style="margin-bottom:8px;">
+                                        <tr><td class="label">INSTANCE</td><td class="value ok">FNSBPROD — OPEN</td></tr>
+                                        <tr><td class="label">VERSION</td><td class="value">Oracle 7.3.4.0.0</td></tr>
+                                        <tr><td class="label">TABLESPACE DATA</td><td class="value warn">71% (35.5 / 50 GB)</td></tr>
+                                        <tr><td class="label">TABLESPACE IDX</td><td class="value ok">38% (9.5 / 25 GB)</td></tr>
+                                        <tr><td class="label">TABLESPACE TEMP</td><td class="value ok">12%</td></tr>
+                                        <tr><td class="label">REDO LOG</td><td class="value ok">Group 2 — Active</td></tr>
+                                        <tr><td class="label">REPLICATION LAG</td><td class="value ok">0.003s (DR-STANDBY)</td></tr>
+                                        <tr><td class="label">LAST BACKUP</td><td class="value ok">11/03/1997 01:00:00</td></tr>
+                                        <tr><td class="label">OPEN CURSORS</td><td class="value ok">144 / 400</td></tr>
+                                        <tr><td class="label">ACTIVE SESSIONS</td><td class="value ok">18</td></tr>
+                                    </table>
+                                    <div style="display:flex; gap:4px;">
+                                        <button class="admin-btn">FLUSH SHARED POOL</button>
+                                        <button class="admin-btn">CHECKPOINT</button>
+                                        <button class="admin-btn danger">KILL SESSION</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td style="width:50%; vertical-align:top;">
+                            <div class="panel">
+                                <div class="panel-title">USER ACCOUNTS — iBank Portal</div>
+                                <div class="panel-body">
+                                    <table class="db-table">
+                                        <thead>
+                                        <tr>
+                                            <th>USERNAME</th><th>ROLE</th><th>LAST LOGIN</th><th>STATUS</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>root</td>
+                                            <td style="color:#ff4444;">ADMIN</td>
+                                            <td>11/03/1997</td>
+                                            <td style="color:#00ff88;">ACTIVE</td>
+                                        </tr>
+                                        <tr>
+                                            <td>sysop</td>
+                                            <td style="color:#ffaa00;">SYSOP</td>
+                                            <td>11/01/1997</td>
+                                            <td style="color:#00ff88;">ACTIVE</td>
+                                        </tr>
+                                        <tr>
+                                            <td>auditor</td>
+                                            <td>READONLY</td>
+                                            <td>10/28/1997</td>
+                                            <td style="color:#00ff88;">ACTIVE</td>
+                                        </tr>
+                                        <tr>
+                                            <td>testuser</td>
+                                            <td>USER</td>
+                                            <td>11/03/1997</td>
+                                            <td style="color:#00ff88;">ACTIVE</td>
+                                        </tr>
+                                        <tr>
+                                            <td>jsmith</td>
+                                            <td>USER</td>
+                                            <td>10/15/1997</td>
+                                            <td style="color:#007700;">INACTIVE</td>
+                                        </tr>
+                                        <tr>
+                                            <td>backup_svc</td>
+                                            <td>SERVICE</td>
+                                            <td>11/03/1997</td>
+                                            <td style="color:#00ff88;">ACTIVE</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <hr class="green">
+                                    <div style="display:flex; gap:4px; margin-top:2px;">
+                                        <button class="admin-btn">ADD USER</button>
+                                        <button class="admin-btn">RESET PWD</button>
+                                        <button class="admin-btn danger">DISABLE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Network status panel -->
+                <div class="panel">
+                    <div class="panel-title">NETWORK INTERFACES &amp; SERVICES</div>
+                    <div class="panel-body">
+                        <table style="width:100%; border-collapse:collapse; font-size:10px;">
+                            <tr>
+                                <td style="width:50%; vertical-align:top; padding-right:10px;">
+                                    <table class="status-table">
+                                        <tr><td class="label">le0 (PUBLIC)</td><td class="value ok">198.41.0.10 / 255.255.255.0</td></tr>
+                                        <tr><td class="label">le1 (INTERNAL)</td><td class="value ok">10.0.1.5 / 255.255.255.0</td></tr>
+                                        <tr><td class="label">lo0 (LOOPBACK)</td><td class="value ok">127.0.0.1</td></tr>
+                                        <tr><td class="label">DEFAULT GW</td><td class="value ok">198.41.0.1</td></tr>
+                                        <tr><td class="label">DNS PRIMARY</td><td class="value ok">198.41.0.3</td></tr>
+                                        <tr><td class="label">DNS SECONDARY</td><td class="value ok">198.41.0.4</td></tr>
+                                    </table>
+                                </td>
+                                <td style="width:50%; vertical-align:top;">
+                                    <table class="status-table">
+                                        <tr><td class="label">HTTP :80</td><td class="ok">LISTENING</td></tr>
+                                        <tr><td class="label">HTTPS :443</td><td class="ok">LISTENING</td></tr>
+                                        <tr><td class="label">iBank :7070</td><td class="ok">LISTENING</td></tr>
+                                        <tr><td class="label">Oracle :1521</td><td class="ok">LISTENING</td></tr>
+                                        <tr><td class="label">SMTP :25</td><td class="ok">LISTENING</td></tr>
+                                        <tr><td class="label">SSH :22</td><td class="warn">RESTRICTED</td></tr>
+                                        <tr><td class="label">TELNET :23</td><td class="crit">DISABLED</td></tr>
+                                        <tr><td class="label">FTP :21</td><td class="crit">DISABLED</td></tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        FNSB INTERNAL SYSTEMS CONSOLE &nbsp;|&nbsp; MAINFRAME-B &nbsp;|&nbsp; v2.1.4 &nbsp;|&nbsp;
+        &copy; 1997 FIRST NATIONAL SAVINGS BANK &mdash; FOR AUTHORIZED PERSONNEL ONLY &nbsp;|&nbsp;
+        ALL ACTIVITY IS MONITORED AND LOGGED &nbsp;|&nbsp;
+        <a href="/logout">LOGOUT</a>
+    </div>
+
+</div><!-- end .page-wrapper -->
+
+<script type="text/javascript">
+    // Fake live clock
+    function tick() {
+        var now = new Date();
+        var mm = String(now.getMonth()+1).padStart(2,'0');
+        var dd = String(now.getDate()).padStart(2,'0');
+        var yy = now.getFullYear();
+        var hh = String(now.getHours()).padStart(2,'0');
+        var mi = String(now.getMinutes()).padStart(2,'0');
+        var ss = String(now.getSeconds()).padStart(2,'0');
+        document.getElementById('clk').innerText     = mm+'/'+dd+'/'+yy;
+        document.getElementById('clktime').innerText = hh+':'+mi+':'+ss;
+    }
+    tick();
+    setInterval(tick, 1000);
+</script>
+
+</body>
+</html>

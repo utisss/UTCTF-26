@@ -1,0 +1,23 @@
+services:
+  web-time-to-pretend:
+    build:
+      context: ./web
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: 1g
+        max-file: "1"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2G
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:9382')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    ports:
+      - 9382:9382

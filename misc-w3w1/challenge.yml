@@ -1,0 +1,26 @@
+name: "W3W1"
+category: Misc
+description: |
+  The three words I would use to describe this location are...
+
+  Flag format: utflag{word1.word2.word3}
+
+  By Caleb (@eden.caleb.a on discord)
+author: Caleb
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+files:
+  - W3W1.jpg
+flags:
+  - utflag{herds.founding.tooth}
+  - utflag{action.slam.snitch}
+  - utflag{grazes.traders.popped}
+  - utflag{tallest.exact.smudges}
+  - utflag{dove.fine.inflame}
+  - utflag{painter.petition.saunas}
+  - utflag{floating.offices.splash}
+  - utflag{whizzed.clusters.baked}
+  - utflag{bleach.folk.timidly}

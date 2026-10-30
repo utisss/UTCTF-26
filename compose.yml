@@ -1,0 +1,7 @@
+include:
+  - ./web-break-the-bank/docker-compose.yml
+  - ./web-crab-mentality/docker-compose.yml
+  - ./web-time-to-pretend/docker-compose.yml
+  - ./crypto-oblivious-error/docker-compose.yml
+  - ./pwn-poker-small-blind/docker-compose.yml
+  - ./misc-llm/docker-compose.yml

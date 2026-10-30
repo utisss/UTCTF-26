@@ -1,0 +1,18 @@
+name: "Fortune Teller"
+category: Cryptography
+description: |
+  Our security team built a "cryptographically secure" random number generator.
+  The lead engineer assured us it was basically AES.
+  He has since been let go.
+  By Garv (@GarvK07 on discord)
+author: Garv
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{pr3d1ct_th3_futur3_lcg}
+files:
+  - lcg.txt

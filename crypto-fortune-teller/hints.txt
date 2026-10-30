@@ -1,0 +1,24 @@
+HINT 1 — What is an LCG and why is it weak?
+- An LCG is a formula that generates "random" numbers one after another
+- The formula is: next_number = (a * current_number + c) % m
+- The problem is that a and c are SECRET but fixed — they never change
+- This means if you see enough outputs, you can figure out what a and c are
+- Once you know a and c, you can predict every future number the generator produces
+- Google "LCG attack" or "cracking linear congruential generator" for more info
+
+HINT 2 — How do you find the secret a?
+- You have 4 outputs. Call the first three: x1, x2, x3
+- You know x2 was made from x1, and x3 was made from x2
+- If you subtract those two relationships the c cancels out, leaving only a
+- The formula to get a is:
+    a = (x3 - x2) * modular_inverse(x2 - x1, m) % m
+- modular_inverse just means "division in modular math" — use sympy for it:
+    from sympy import mod_inverse
+    a = (x3 - x2) * mod_inverse(x2 - x1, m) % m
+
+HINT 3 — How do you find c and predict the next number?
+- Once you have a, getting c is simple:
+    c = (x2 - a * x1) % m
+- Now you can predict output_5 (the one after the 4 you were given):
+    output_5 = (a * output_4 + c) % m
+- output_5 is the decryption key!

@@ -1,0 +1,17 @@
+name: "Time to Pretend"
+category: Web
+description: |
+  Did you hear about the big AffiniTech outage earlier this week? Earlier today, someone leaked some internal traffic of theirs on the darkweb as proof that they pwned the service. But I think there's more here than just logs; maybe you can break in too?
+  by Emmett (@emdawg25 on discord)
+author: Emmett
+value: 0
+type: dynamic
+connection_info: challenge.utctf.live:9382
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{t1m3_1s_n0t_r3l1@bl3_n0w_1s_1t}
+files:
+  - aftechLEAK.pcap

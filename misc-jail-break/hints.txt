@@ -1,0 +1,31 @@
+FLAG: utflag{py_ja1l_3sc4p3_m4st3r}
+
+HINT 1
+- Run the file with: python3 jail.py
+- You get a Python prompt — try typing things and see what works and what gets blocked
+- Try: print("hello") or print(1+1) to get started
+
+HINT 2
+- There is a function called vars() available to you
+- vars() shows everything that exists in your current environment
+- Try typing: print(list(vars().keys()))
+- Look at what comes back — do you see anything interesting?
+
+HINT 3
+- You should see _secret in the output
+- Try calling it: _secret()
+- It will get blocked because the word "secret" is banned
+- You need another way to call it without typing the word "secret"
+
+HINT 4
+- In Python you can turn any number into a character using chr()
+- For example chr(65) gives you the letter A
+- You can build any word by joining chr() calls together
+- Try building the word _secret using chr() — use an ASCII table to find the numbers
+
+HINT 5
+- Here are the chr() values for _secret:
+  chr(95)+chr(115)+chr(101)+chr(99)+chr(114)+chr(101)+chr(116)
+- Once you have the string, use vars() to find the function and call it:
+  fn = chr(95)+chr(115)+chr(101)+chr(99)+chr(114)+chr(101)+chr(116)
+  print(vars()[fn]())

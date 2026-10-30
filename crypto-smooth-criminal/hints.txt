@@ -1,0 +1,26 @@
+HINT 1 — Identify the problem type
+- This is a Discrete Logarithm Problem (DLP): given g and h, find x where g^x ≡ h (mod p)
+- Brute force won't work for a 649-bit prime
+- The flavor text hints that p itself is fine — something about the *structure* of the group is weak
+- What property of p determines the security of DLP?
+
+HINT 2 — Point toward p-1 smoothness
+- The security of DLP over Z_p* depends on the largest prime factor of p-1
+- Try factoring p-1 using factorint(p - 1) from sympy
+- Look at what comes out — does anything surprise you?
+
+HINT 3 — Name the algorithm
+- p-1 factors into only small primes — this is called a "smooth" number
+- The algorithm you want is called Pohlig-Hellman
+- It splits the DLP into smaller DLPs, solves each with Baby-Step Giant-Step, then combines with CRT
+- Google "Pohlig-Hellman algorithm" or look it up on Wikipedia / CryptoHack
+
+HINT 4 — Quick solve shortcut
+- sympy has a built in function that runs Pohlig-Hellman internally
+- from sympy import discrete_log
+- x = discrete_log(p, h, g)
+- Then decode: x.to_bytes((x.bit_length() + 7) // 8, 'big').decode()
+
+HINT 5 — Decoding the integer
+- Once you have x, convert it to bytes to get the flag
+- flag = x.to_bytes((x.bit_length() + 7) // 8, 'big').decode()

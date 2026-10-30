@@ -1,0 +1,18 @@
+name: Hour of Joy
+category: Binary Exploitation
+description: |
+  This program is very friendly. It just wants to say hello.
+  Nothing suspicious going on here at all.
+  Download the binary and run it locally.
+  By Garv (@GarvK07 on discord)
+author: Garv
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{f0rm4t_str1ng_l34k3d}
+files:
+  - vuln

@@ -1,0 +1,30 @@
+URGENT - READ IMMEDIATELY
+=========================
+TO: dev team
+FROM: timothy
+DATE: 2013-11-12 03:47:22
+
+guys,
+
+i think someone figured out the AffinKey system. i dont have time to explain everything
+right now but there is a SERIOUS flaw in how we generate the OTPs. i only just realized
+it tonight and i am freaking out.
+
+i have locked every account in the system except mine while we figure this out. DO NOT
+unlock anyone until we have patched this. i dont care if users complain. i dont care if
+chad emails again. nobody gets in.
+
+my account stays active because i need access to keep monitoring the situation. if you
+need to reach me use signal.
+
+do NOT roll back the auth system yet - i need to look at the logs first to see if anyone
+has already gotten in. if they have we have a much bigger problem.
+
+i will write up a full post-mortem once i stop shaking. 
+
+do not talk to anyone about this. not on slack. not on email. definitely not on the forum.
+
+- timothy
+
+p.s. i know kevin is going to say "i told you so" about building this ourselves.
+he was right. i don't want to hear it.

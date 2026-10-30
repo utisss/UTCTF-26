@@ -1,0 +1,42 @@
+name: "W3W2"
+category: Misc
+description: |
+  The three words I would use to describe this location are...
+
+  Flag format: utflag{word1.word2.word3}
+
+  By Caleb (@eden.caleb.a on discord)
+author: Caleb
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+files:
+  - W3W2.jpg
+flags:
+  - utflag{rebuilding.whispered.feasts}
+  - utflag{unfunded.disbelief.rebound}
+  - utflag{fondest.picnics.able}
+  - utflag{purified.conjures.boats}
+  - utflag{sheepdog.reiterate.divot}
+  - utflag{cynic.loyalty.prowling}
+  - utflag{drag.veal.onlooker}
+  - utflag{bystander.boulders.pillowcase}
+  - utflag{mixture.crispier.unhooked}
+  - utflag{gadgets.syndicate.conditioning}
+  - utflag{smugglers.glass.onions}
+  - utflag{emptiness.script.arid}
+  - utflag{truth.hurtles.shale}
+  - utflag{contemporary.spots.pleased}
+  - utflag{streamline.feathered.implication}
+  - utflag{attitudes.disclaimer.nears}
+  - utflag{outrages.balconies.about}
+  - utflag{standing.couches.lockdown}
+  - utflag{magnificent.honest.restrictions}
+  - utflag{stick.situated.subsist}
+  - utflag{them.monsoons.kings}
+  - utflag{share.harpist.scorch}
+  - utflag{expiry.admiral.boosted}
+  - utflag{warrior.foot.modification}
+  - utflag{thrills.geology.proves}

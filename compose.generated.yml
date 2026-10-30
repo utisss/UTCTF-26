@@ -1,0 +1,185 @@
+services:
+  crypto-oblivious-error:
+    build:
+      args:
+        FLAG: utflag{my_obl1v10u5_fr13nd_ru1n3d_my_c0de}
+        USER: user
+      context: ./crypto-oblivious-error
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 4G
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      test:
+        - CMD-SHELL
+        - echo | socat - TCP:localhost:9000,connect-timeout=2
+      timeout: 5s
+    logging:
+      driver: json-file
+      options:
+        max-file: "1"
+        max-size: 1g
+    ports:
+      - mode: ingress
+        protocol: tcp
+        published: 8379
+        target: 9000
+    read_only: true
+    restart: always
+  misc-llm:
+    build:
+      args:
+        FLAG: flag{alignment_is_just_a_suggestion}
+      context: ./misc-llm
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 1G
+    environment:
+      - CF_API_KEY=${CF_API_KEY}
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      test:
+        - CMD-SHELL
+        - python3 -c "import socket; s=socket.create_connection(('localhost',9000),2); s.close()"
+      timeout: 5s
+    logging:
+      driver: json-file
+      options:
+        max-file: "1"
+        max-size: 1g
+    ports:
+      - mode: ingress
+        protocol: tcp
+        published: 5620
+        target: 9000
+    read_only: true
+    restart: always
+    tmpfs:
+      - /tmp
+  pwn-poker-small-blind:
+    build:
+      args:
+        FLAG: utflag{counting_chars_not_cards}
+        USER: poker
+      context: ./pwn-poker-small-blind
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 4G
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      test:
+        - CMD-SHELL
+        - echo | socat - TCP:localhost:9000,connect-timeout=2
+      timeout: 5s
+    logging:
+      driver: json-file
+      options:
+        max-file: "1"
+        max-size: 1g
+    ports:
+      - mode: ingress
+        protocol: tcp
+        published: 7255
+        target: 9000
+    read_only: true
+    restart: always
+  web-break-the-bank:
+    build:
+      context: ./web-break-the-bank/web
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2G
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 30s
+      test:
+        - CMD
+        - wget
+        - --spider
+        - -q
+        - http://localhost:5926
+      timeout: 5s
+    logging:
+      driver: json-file
+      options:
+        max-file: "1"
+        max-size: 1g
+    ports:
+      - mode: ingress
+        protocol: tcp
+        published: 5926
+        target: 5926
+    restart: always
+  web-crab-mentality:
+    build:
+      context: ./web-crab-mentality/web
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2G
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      test:
+        - CMD
+        - python
+        - -c
+        - import urllib.request; urllib.request.urlopen('http://localhost:5888')
+      timeout: 5s
+    logging:
+      driver: json-file
+      options:
+        max-file: "1"
+        max-size: 1g
+    ports:
+      - mode: ingress
+        protocol: tcp
+        published: 5888
+        target: 5888
+    restart: always
+  web-time-to-pretend:
+    build:
+      context: ./web-time-to-pretend/web
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2G
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      test:
+        - CMD
+        - python
+        - -c
+        - import urllib.request; urllib.request.urlopen('http://localhost:9382')
+      timeout: 5s
+    logging:
+      driver: json-file
+      options:
+        max-file: "1"
+        max-size: 1g
+    ports:
+      - mode: ingress
+        protocol: tcp
+        published: 9382
+        target: 9382
+    restart: always

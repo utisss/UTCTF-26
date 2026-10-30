@@ -1,0 +1,1508 @@
+<<<<<<< HEAD
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="description" content="First National Savings Bank - My Account">
+    <title>First National Savings Bank - My Account Summary</title>
+    <style type="text/css">
+
+        body {
+            background-color: #c0c0c0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23c0c0c0'/%3E%3Crect width='1' height='1' fill='%23b0b0b0' opacity='0.4'/%3E%3C/svg%3E");
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12px;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ---- TOP BANNER ---- */
+        .top-banner {
+            width: 100%;
+            background-color: #000080;
+            border-bottom: 3px solid #ffcc00;
+        }
+        .banner-inner { display: table; width: 100%; }
+        .banner-logo-cell {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 6px 12px;
+        }
+        .banner-title {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffcc00;
+            vertical-align: middle;
+            letter-spacing: 1px;
+        }
+        .banner-subtitle {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #aaddff;
+            display: block;
+            margin-top: 2px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .banner-user-cell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+            padding: 6px 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #aaddff;
+        }
+        .btn-logout {
+            background-color: #550000;
+            color: #ffaaaa;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            border: 2px outset #884444;
+            padding: 3px 10px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+        .btn-logout:hover { background-color: #770000; border-style: inset; }
+
+        /* ---- NAV BAR ---- */
+        .navbar {
+            background-color: #000080;
+            border-bottom: 2px solid #000033;
+            padding: 0;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 14px;
+            border-right: 1px solid #3333aa;
+            font-weight: bold;
+        }
+        .navbar a:first-child { border-left: 1px solid #3333aa; }
+        .navbar a:hover       { background-color: #3333cc; color: #ffcc00; }
+        .navbar a.active      { background-color: #000033; color: #ffcc00; border-bottom: 2px solid #ffcc00; }
+
+        /* ---- PAGE WRAPPER ---- */
+        .page-wrapper { width: 820px; margin: 10px auto; }
+
+        /* ---- SECURITY STRIP ---- */
+        .security-strip {
+            background-color: #006600;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            text-align: center;
+            padding: 3px;
+            border: 1px solid #004400;
+            margin-bottom: 8px;
+        }
+
+        /* ---- WELCOME HEADER ---- */
+        .welcome-bar {
+            background: linear-gradient(to right, #000033, #000080);
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            padding: 6px 12px;
+            border: 2px outset #aaaacc;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .welcome-bar .last-login {
+            font-size: 10px;
+            color: #aaaacc;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        /* ---- LAYOUT ---- */
+        .layout-table { width: 100%; border-collapse: collapse; }
+        .sidebar      { width: 185px; vertical-align: top; padding-right: 8px; }
+        .main-content { vertical-align: top; }
+
+        /* ---- SIDEBAR BOX ---- */
+        .sidebar-box { background-color: #000080; border: 2px solid #000033; margin-bottom: 10px; }
+        .sidebar-box-title {
+            background-color: #000033;
+            color: #ffcc00;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #3333aa;
+        }
+        .sidebar-box-body { padding: 6px; }
+        .sidebar-box-body a {
+            display: block;
+            color: #aaddff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            text-decoration: none;
+            padding: 3px 2px;
+            border-bottom: 1px dotted #3333aa;
+        }
+        .sidebar-box-body a:hover        { color: #ffcc00; text-decoration: underline; }
+        .sidebar-box-body a.active-link  { color: #ffcc00; font-weight: bold; }
+
+        .contact-box {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            color: #ccccff;
+            padding: 6px;
+            line-height: 1.7;
+        }
+
+        /* ---- PANEL ---- */
+        .panel {
+            background-color: #ffffff;
+            border: 2px inset #aaaaaa;
+            margin-bottom: 10px;
+        }
+        .panel-title {
+            background: linear-gradient(to right, #000080, #3333cc);
+            color: #ffcc00;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-bottom: 2px solid #ffcc00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .panel-title .panel-date {
+            font-size: 10px;
+            color: #aaddff;
+            font-family: "Courier New", Courier, monospace;
+            font-weight: normal;
+        }
+        .panel-body { padding: 10px 12px; }
+
+        /* ---- ACCOUNT CARDS ROW ---- */
+        .accounts-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2px;
+        }
+
+        .acct-card {
+            flex: 1;
+            border: 2px outset #aaaaaa;
+            background-color: #eef2f8;
+        }
+        .acct-card-header {
+            background-color: #000080;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-bottom: 1px solid #000033;
+        }
+        .acct-card-body {
+            padding: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+        }
+        .acct-number {
+            color: #666666;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 10px;
+            margin-bottom: 4px;
+        }
+        .acct-balance {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 20px;
+            font-weight: bold;
+            color: #003300;
+            margin: 6px 0 2px 0;
+        }
+        .acct-balance.negative { color: #cc0000; }
+        .acct-avail {
+            font-size: 10px;
+            color: #555555;
+            margin-bottom: 6px;
+        }
+        .acct-link {
+            font-size: 10px;
+            color: #000080;
+            text-decoration: none;
+        }
+        .acct-link:hover { text-decoration: underline; }
+
+        /* ---- TRANSACTIONS TABLE ---- */
+        .tx-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .tx-table th {
+            background-color: #000080;
+            color: #ffcc00;
+            padding: 4px 8px;
+            text-align: left;
+            border: 1px solid #000033;
+        }
+        .tx-table td {
+            padding: 4px 8px;
+            border: 1px solid #cccccc;
+        }
+        .tx-table tr:nth-child(even) td { background-color: #eef2f8; }
+        .tx-table tr:nth-child(odd)  td { background-color: #f8faff; }
+        .tx-table td.amount-debit  { color: #cc0000; font-family: "Courier New", Courier, monospace; text-align: right; }
+        .tx-table td.amount-credit { color: #006600; font-family: "Courier New", Courier, monospace; text-align: right; }
+        .tx-table td.tx-date       { font-family: "Courier New", Courier, monospace; color: #555555; white-space: nowrap; }
+        .tx-table td.tx-balance    { font-family: "Courier New", Courier, monospace; text-align: right; color: #003300; }
+
+        .tx-footer {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            color: #555555;
+            text-align: right;
+            margin-top: 4px;
+        }
+        .tx-footer a { color: #000080; }
+
+        /* ---- MINI CHART (pure CSS/SVG bar chart) ---- */
+        .chart-title {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            color: #000080;
+            margin-bottom: 6px;
+        }
+
+        /* ---- ALERT BOX ---- */
+        .alert-box {
+            background-color: #fffff0;
+            border: 2px inset #cccc00;
+            padding: 6px 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+        .alert-box ul { margin: 4px 0 0 16px; padding: 0; }
+        .alert-box li { margin-bottom: 2px; }
+        .alert-box a  { color: #000080; }
+
+        /* ---- FOOTER ---- */
+        .footer {
+            background-color: #000033;
+            color: #aaaaaa;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            text-align: center;
+            padding: 8px;
+            border-top: 2px solid #000080;
+            margin-top: 14px;
+        }
+        .footer a { color: #aaddff; }
+
+        hr.fancy {
+            border: none;
+            border-top: 2px solid #000080;
+            border-bottom: 1px solid #aaaaff;
+            margin: 6px 0;
+        }
+
+        .blink { animation: blinker 1s step-start infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BANNER
+============================================================ -->
+<div class="top-banner">
+    <div class="banner-inner">
+        <div class="banner-logo-cell">
+            <svg width="40" height="40" viewBox="0 0 48 48" style="vertical-align:middle; margin-right:8px;"
+                 xmlns="http://www.w3.org/2000/svg">
+                <polygon points="24,2 46,14 46,46 2,46 2,14" fill="#000033" stroke="#ffcc00" stroke-width="2"/>
+                <rect x="8" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="16" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="24" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="32" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="6" y="20" width="36" height="3" fill="#ffcc00"/>
+                <polygon points="24,6 40,14 8,14" fill="#ffcc00"/>
+                <rect x="6" y="38" width="36" height="3" fill="#ffcc00"/>
+            </svg>
+            <span class="banner-title">First National Savings Bank</span>
+            <span class="banner-subtitle">Internet Banking &mdash; Account Summary</span>
+        </div>
+        <div class="banner-user-cell">
+            <div>Logged in as: <strong style="color:#ffcc00;">{{username}}</strong></div>
+            <div class="last-login">Last login: 11/03/1997 09:14:22 AM CT</div>
+            <a href="/" class="btn-logout">[ Sign Out ]</a>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     NAV BAR
+============================================================ -->
+<div class="navbar">
+    <a href="#" class="active">Account Summary</a>
+    <a href="#">Transfer Funds</a>
+    <a href="#">Bill Pay</a>
+    <a href="#">Statements</a>
+    <a href="#">Loans</a>
+    <a href="#">Investments</a>
+    <a href="#">Messages</a>
+    <a href="#">Settings</a>
+</div>
+
+<!-- ============================================================
+     PAGE WRAPPER
+============================================================ -->
+<div class="page-wrapper">
+
+    <div class="security-strip">
+        &#128274;&nbsp; Secure 128-bit SSL Session Active &nbsp;|&nbsp; Session expires in: <strong>29:47</strong>
+    </div>
+
+    <!-- Welcome bar -->
+    <div class="welcome-bar">
+    <span>
+      &#128100;&nbsp; Welcome back, <strong>{{username}}</strong>! &nbsp;
+      <span style="font-size:10px; color:#aaaacc;">Customer since: January 14, 1993</span>
+    </span>
+        <span class="last-login">11/03/1997 &mdash; Springfield, IL Branch</span>
+    </div>
+
+    <!-- Alerts -->
+    <div class="alert-box">
+        <strong>&#9888; Account Notices (2):</strong>
+        <ul>
+            <li>Your <a href="#">CD Account #4821-009</a> matures on <strong>12/15/1997</strong>. <a href="#">Renew or withdraw &raquo;</a></li>
+            <li>A new <a href="#">electronic statement</a> is available for October 1997. <a href="#">View now &raquo;</a></li>
+        </ul>
+    </div>
+
+    <table class="layout-table">
+        <tr>
+
+            <!-- ==================== SIDEBAR ==================== -->
+            <td class="sidebar">
+
+                <div class="sidebar-box">
+                    <div class="sidebar-box-title">&#187; My Accounts</div>
+                    <div class="sidebar-box-body">
+                        <a href="#" class="active-link">&#9654; Account Summary</a>
+                        <a href="#">Platinum Checking &#x2026;4471</a>
+                        <a href="#">Platinum Savings &#x2026;8823</a>
+                        <a href="#">CD Account &#x2026;4821</a>
+                        <a href="#">Money Market &#x2026;1107</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-box">
+                    <div class="sidebar-box-title">&#187; Quick Actions</div>
+                    <div class="sidebar-box-body">
+                        <a href="#">Transfer Funds</a>
+                        <a href="#">Pay a Bill</a>
+                        <a href="#">Order Checks</a>
+                        <a href="#">Download Statement</a>
+                        <a href="#">Change Password</a>
+                        <a href="#">Update Address</a>
+                        <a href="#">Report Lost Card</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-box">
+                    <div class="sidebar-box-title">&#187; Customer Service</div>
+                    <div class="contact-box">
+                        <strong style="color:#ffcc00;">1-800-555-FNSB</strong><br>
+                        Mon&ndash;Fri 8am&ndash;8pm CT<br>
+                        Sat 9am&ndash;3pm CT<br>
+                        <br>
+                        <a href="#" style="color:#aaddff;">Send Secure Message</a><br>
+                        <a href="#" style="color:#aaddff;">Find ATM / Branch</a>
+                    </div>
+                </div>
+
+            </td>
+
+            <!-- ==================== MAIN CONTENT ==================== -->
+            <td class="main-content">
+
+                <!-- Account Cards -->
+                <div class="panel">
+                    <div class="panel-title">
+                        My Accounts &mdash; Overview
+                        <span class="panel-date">As of: 11/03/1997 &nbsp;10:31 AM CT</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="accounts-row">
+
+                            <div class="acct-card">
+                                <div class="acct-card-header">&#128179; Platinum Checking</div>
+                                <div class="acct-card-body">
+                                    <div class="acct-number">Acct #: ***-****-4471 &nbsp;|&nbsp; Routing: 071000013</div>
+                                    <div class="acct-balance">$4,218.03</div>
+                                    <div class="acct-avail">Available Balance: <strong>$4,018.03</strong></div>
+                                    <a href="#" class="acct-link">View Transactions &raquo;</a> &nbsp;
+                                    <a href="#" class="acct-link">Transfer &raquo;</a>
+                                </div>
+                            </div>
+
+                            <div class="acct-card">
+                                <div class="acct-card-header">&#128200; Platinum Savings</div>
+                                <div class="acct-card-body">
+                                    <div class="acct-number">Acct #: ***-****-8823 &nbsp;|&nbsp; APY: 5.25%</div>
+                                    <div class="acct-balance">$12,745.61</div>
+                                    <div class="acct-avail">Interest YTD: <strong>+$621.14</strong></div>
+                                    <a href="#" class="acct-link">View Transactions &raquo;</a> &nbsp;
+                                    <a href="#" class="acct-link">Transfer &raquo;</a>
+                                </div>
+                            </div>
+
+                            <div class="acct-card">
+                                <div class="acct-card-header">&#128185; CD / Money Market</div>
+                                <div class="acct-card-body">
+                                    <div class="acct-number">CD #***-4821 &nbsp;5.50% APY &nbsp;Matures 12/15</div>
+                                    <div class="acct-balance">$5,500.00</div>
+                                    <div class="acct-avail">MMA #***-1107 Balance: <strong>$2,310.88</strong></div>
+                                    <a href="#" class="acct-link">CD Details &raquo;</a> &nbsp;
+                                    <a href="#" class="acct-link">Renew &raquo;</a>
+                                </div>
+                            </div>
+
+                        </div><!-- end .accounts-row -->
+
+                        <hr class="fancy">
+
+                        <!-- Total net worth strip -->
+                        <table style="width:100%; font-family:Arial; font-size:11px; margin-top:4px;">
+                            <tr>
+                                <td style="color:#555555;">Total Deposits:</td>
+                                <td style="font-family:'Courier New',monospace; color:#003300; font-weight:bold;">$24,774.52</td>
+                                <td style="width:30px;"></td>
+                                <td style="color:#555555;">Total Interest Earned (YTD):</td>
+                                <td style="font-family:'Courier New',monospace; color:#006600; font-weight:bold;">+$1,044.87</td>
+                                <td style="width:30px;"></td>
+                                <td style="color:#555555;">Outstanding Loan Balance:</td>
+                                <td style="font-family:'Courier New',monospace; color:#cc0000; font-weight:bold;">-$87,432.10</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="panel">
+                    <div class="panel-title">
+                        Recent Transactions &mdash; Platinum Checking (&#x2026;4471)
+                        <span class="panel-date">Last 10 transactions</span>
+                    </div>
+                    <div class="panel-body">
+                        <table class="tx-table">
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th style="text-align:right;">Amount</th>
+                                <th style="text-align:right;">Balance</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="tx-date">11/03/1997</td>
+                                <td>JEWEL OSCO #0442 SPRINGFIELD IL</td>
+                                <td>POS Debit</td>
+                                <td class="amount-debit">-$47.31</td>
+                                <td class="tx-balance">$4,218.03</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">11/01/1997</td>
+                                <td>DIRECT DEPOSIT — ACME CORP PAYROLL</td>
+                                <td>ACH Credit</td>
+                                <td class="amount-credit">+$1,842.50</td>
+                                <td class="tx-balance">$4,265.34</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/31/1997</td>
+                                <td>AMERITECH ILLINOIS — UTILITY PMT</td>
+                                <td>Bill Pay</td>
+                                <td class="amount-debit">-$68.14</td>
+                                <td class="tx-balance">$2,422.84</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/31/1997</td>
+                                <td>ATM WITHDRAWAL — FNSB MAIN ST</td>
+                                <td>ATM</td>
+                                <td class="amount-debit">-$100.00</td>
+                                <td class="tx-balance">$2,490.98</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/29/1997</td>
+                                <td>CITIZENS GAS &amp; COKE UTILITY</td>
+                                <td>Bill Pay</td>
+                                <td class="amount-debit">-$54.22</td>
+                                <td class="tx-balance">$2,590.98</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/28/1997</td>
+                                <td>SPRINGFIELD MALL — SEARS</td>
+                                <td>POS Debit</td>
+                                <td class="amount-debit">-$132.47</td>
+                                <td class="tx-balance">$2,645.20</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/27/1997</td>
+                                <td>TRANSFER FROM SAVINGS &#x2026;8823</td>
+                                <td>Transfer</td>
+                                <td class="amount-credit">+$500.00</td>
+                                <td class="tx-balance">$2,777.67</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/25/1997</td>
+                                <td>SHELL OIL #7712 SPRINGFIELD IL</td>
+                                <td>POS Debit</td>
+                                <td class="amount-debit">-$22.15</td>
+                                <td class="tx-balance">$2,277.67</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/24/1997</td>
+                                <td>FNSB MORTGAGE PAYMENT — LOAN #28811</td>
+                                <td>Loan Pmt</td>
+                                <td class="amount-debit">-$714.00</td>
+                                <td class="tx-balance">$2,299.82</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/22/1997</td>
+                                <td>KROGER #0193 SPRINGFIELD IL</td>
+                                <td>POS Debit</td>
+                                <td class="amount-debit">-$89.63</td>
+                                <td class="tx-balance">$3,013.82</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="tx-footer">
+                            <a href="#">View all transactions &raquo;</a> &nbsp;|&nbsp;
+                            <a href="#">Download as CSV &raquo;</a> &nbsp;|&nbsp;
+                            <a href="#">Print statement &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Savings chart + loan summary side by side -->
+                <table style="width:100%; border-collapse:collapse;">
+                    <tr>
+
+                        <!-- Savings balance bar chart -->
+                        <td style="width:55%; vertical-align:top; padding-right:8px;">
+                            <div class="panel">
+                                <div class="panel-title">Monthly Savings Balance &mdash; 1997</div>
+                                <div class="panel-body">
+                                    <div class="chart-title">Platinum Savings Acct &#x2026;8823 (USD)</div>
+                                    <svg width="100%" height="130" viewBox="0 0 380 130"
+                                         xmlns="http://www.w3.org/2000/svg" style="display:block;">
+                                        <!-- Grid lines -->
+                                        <line x1="38" y1="10"  x2="375" y2="10"  stroke="#cccccc" stroke-width="0.5" stroke-dasharray="3,3"/>
+                                        <line x1="38" y1="35"  x2="375" y2="35"  stroke="#cccccc" stroke-width="0.5" stroke-dasharray="3,3"/>
+                                        <line x1="38" y1="60"  x2="375" y2="60"  stroke="#cccccc" stroke-width="0.5" stroke-dasharray="3,3"/>
+                                        <line x1="38" y1="85"  x2="375" y2="85"  stroke="#cccccc" stroke-width="0.5" stroke-dasharray="3,3"/>
+                                        <line x1="38" y1="110" x2="375" y2="110" stroke="#aaaaaa" stroke-width="1"/>
+                                        <!-- Y-axis labels -->
+                                        <text x="34" y="14"  text-anchor="end" font-size="8" font-family="Courier New" fill="#555555">$14k</text>
+                                        <text x="34" y="39"  text-anchor="end" font-size="8" font-family="Courier New" fill="#555555">$12k</text>
+                                        <text x="34" y="64"  text-anchor="end" font-size="8" font-family="Courier New" fill="#555555">$10k</text>
+                                        <text x="34" y="89"  text-anchor="end" font-size="8" font-family="Courier New" fill="#555555">$8k</text>
+                                        <text x="34" y="114" text-anchor="end" font-size="8" font-family="Courier New" fill="#555555">$6k</text>
+                                        <!-- Bars: Jan–Nov. Heights scaled: $6k=0px at y=110, $14k=100px -->
+                                        <!-- Jan $8,100 → h=26  -->
+                                        <rect x="42"  y="84"  width="24" height="26" fill="#000080"/>
+                                        <!-- Feb $8,400 → h=30 -->
+                                        <rect x="72"  y="80"  width="24" height="30" fill="#000080"/>
+                                        <!-- Mar $9,100 → h=39 -->
+                                        <rect x="102" y="71"  width="24" height="39" fill="#000080"/>
+                                        <!-- Apr $9,800 → h=47 -->
+                                        <rect x="132" y="63"  width="24" height="47" fill="#000080"/>
+                                        <!-- May $10,200 → h=52 -->
+                                        <rect x="162" y="58"  width="24" height="52" fill="#000080"/>
+                                        <!-- Jun $10,900 → h=61 -->
+                                        <rect x="192" y="49"  width="24" height="61" fill="#000080"/>
+                                        <!-- Jul $11,400 → h=67 -->
+                                        <rect x="222" y="43"  width="24" height="67" fill="#000080"/>
+                                        <!-- Aug $11,800 → h=72 -->
+                                        <rect x="252" y="38"  width="24" height="72" fill="#000080"/>
+                                        <!-- Sep $12,100 → h=76 -->
+                                        <rect x="282" y="34"  width="24" height="76" fill="#3333aa"/>
+                                        <!-- Oct $12,400 → h=80 -->
+                                        <rect x="312" y="30"  width="24" height="80" fill="#3333aa"/>
+                                        <!-- Nov $12,745 → h=84 -->
+                                        <rect x="342" y="26"  width="24" height="84" fill="#ffcc00"/>
+                                        <!-- Month labels -->
+                                        <text x="54"  y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Jan</text>
+                                        <text x="84"  y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Feb</text>
+                                        <text x="114" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Mar</text>
+                                        <text x="144" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Apr</text>
+                                        <text x="174" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">May</text>
+                                        <text x="204" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Jun</text>
+                                        <text x="234" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Jul</text>
+                                        <text x="264" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Aug</text>
+                                        <text x="294" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Sep</text>
+                                        <text x="324" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Oct</text>
+                                        <text x="354" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#555555" font-weight="bold">Nov</text>
+                                    </svg>
+                                    <div style="font-size:9px; font-family:Arial; color:#888888; margin-top:2px;">
+                                        &#9646; Prior months &nbsp; <span style="color:#ffcc00;">&#9646;</span> Current month
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <!-- Loan summary -->
+                        <td style="width:45%; vertical-align:top;">
+                            <div class="panel">
+                                <div class="panel-title">Loans &amp; Credit</div>
+                                <div class="panel-body">
+                                    <table style="width:100%; font-size:11px; font-family:Arial; border-collapse:collapse;">
+                                        <tr style="background:#eef2f8;">
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-weight:bold;">30-yr Mortgage</td>
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-family:'Courier New',monospace; color:#cc0000; text-align:right;">$87,432.10</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px 6px; border:1px solid #cccccc; font-size:10px; color:#666666;" colspan="2">
+                                                Rate: 7.875% &nbsp;|&nbsp; Pmt: $714.00/mo &nbsp;|&nbsp; Payoff: Aug 2024
+                                            </td>
+                                        </tr>
+                                        <tr style="background:#eef2f8;">
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-weight:bold;">Auto Loan</td>
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-family:'Courier New',monospace; color:#cc0000; text-align:right;">$11,204.55</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px 6px; border:1px solid #cccccc; font-size:10px; color:#666666;" colspan="2">
+                                                Rate: 9.25% &nbsp;|&nbsp; Pmt: $312.50/mo &nbsp;|&nbsp; Payoff: Mar 2001
+                                            </td>
+                                        </tr>
+                                        <tr style="background:#eef2f8;">
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-weight:bold;">FNSB Visa Credit Card</td>
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-family:'Courier New',monospace; color:#000080; text-align:right;">$1,847.22</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px 6px; border:1px solid #cccccc; font-size:10px; color:#666666;" colspan="2">
+                                                Limit: $8,000 &nbsp;|&nbsp; APR: 16.9% &nbsp;|&nbsp; Min due: $37.00 by 11/22
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <hr class="fancy" style="margin:8px 0;">
+                                    <div style="font-family:Arial; font-size:10px; color:#555555;">
+                                        <a href="#" style="color:#000080;">Apply for Home Equity Line &raquo;</a><br>
+                                        <a href="#" style="color:#000080;">Request Credit Limit Increase &raquo;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Footer -->
+    <div class="footer">
+        <hr class="fancy">
+        <strong>First National Savings Bank</strong> &nbsp;|&nbsp;
+        1 Commerce Plaza, Springfield, IL 62701 &nbsp;|&nbsp;
+        1-800-555-FNSB &nbsp;|&nbsp;
+        <a href="#">Privacy Policy</a> &nbsp;|&nbsp;
+        <a href="#">Security Center</a> &nbsp;|&nbsp;
+        <a href="#">Sign Out</a>
+        <br><br>
+        &copy; 1997 First National Savings Bank. All rights reserved.
+        Member <strong>FDIC</strong>. Equal Housing Lender. Deposits insured up to $100,000.
+        <br>
+        <span style="font-size:9px; color:#666666;">
+      This is a secure, private session. Do not leave your computer unattended while logged in.
+      &nbsp;|&nbsp; Session ID: A3F7-992C-1B44
+    </span>
+    </div>
+
+</div><!-- end .page-wrapper -->
+
+</body>
+=======
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="description" content="First National Savings Bank - My Account">
+    <title>First National Savings Bank - My Account Summary</title>
+    <style type="text/css">
+
+        body {
+            background-color: #c0c0c0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23c0c0c0'/%3E%3Crect width='1' height='1' fill='%23b0b0b0' opacity='0.4'/%3E%3C/svg%3E");
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12px;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ---- TOP BANNER ---- */
+        .top-banner {
+            width: 100%;
+            background-color: #000080;
+            border-bottom: 3px solid #ffcc00;
+        }
+        .banner-inner { display: table; width: 100%; }
+        .banner-logo-cell {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 6px 12px;
+        }
+        .banner-title {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffcc00;
+            vertical-align: middle;
+            letter-spacing: 1px;
+        }
+        .banner-subtitle {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #aaddff;
+            display: block;
+            margin-top: 2px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .banner-user-cell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+            padding: 6px 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #aaddff;
+        }
+        .btn-logout {
+            background-color: #550000;
+            color: #ffaaaa;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            border: 2px outset #884444;
+            padding: 3px 10px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+        .btn-logout:hover { background-color: #770000; border-style: inset; }
+        .btn-admin {
+            background-color: #004400;
+            color: #00ff00;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            border: 2px outset #006600;
+            padding: 3px 10px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 4px;
+            margin-right: 6px;
+            cursor: pointer;
+            animation: admin-flash 1s step-start infinite;
+        }
+        .btn-admin:hover { background-color: #006600; border-style: inset; }
+        @keyframes admin-flash {
+            0%   { background-color: #004400; color: #00ff00; }
+            50%  { background-color: #00aa00; color: #ffffff; }
+        }
+
+        /* ---- NAV BAR ---- */
+        .navbar {
+            background-color: #000080;
+            border-bottom: 2px solid #000033;
+            padding: 0;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 5px 14px;
+            border-right: 1px solid #3333aa;
+            font-weight: bold;
+        }
+        .navbar a:first-child { border-left: 1px solid #3333aa; }
+        .navbar a:hover       { background-color: #3333cc; color: #ffcc00; }
+        .navbar a.active      { background-color: #000033; color: #ffcc00; border-bottom: 2px solid #ffcc00; }
+
+        /* ---- PAGE WRAPPER ---- */
+        .page-wrapper { width: 820px; margin: 10px auto; }
+
+        /* ---- SECURITY STRIP ---- */
+        .security-strip {
+            background-color: #006600;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            text-align: center;
+            padding: 3px;
+            border: 1px solid #004400;
+            margin-bottom: 8px;
+        }
+
+        /* ---- WELCOME HEADER ---- */
+        .welcome-bar {
+            background: linear-gradient(to right, #000033, #000080);
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            padding: 6px 12px;
+            border: 2px outset #aaaacc;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .welcome-bar .last-login {
+            font-size: 10px;
+            color: #aaaacc;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        /* ---- LAYOUT ---- */
+        .layout-table { width: 100%; border-collapse: collapse; }
+        .sidebar      { width: 185px; vertical-align: top; padding-right: 8px; }
+        .main-content { vertical-align: top; }
+
+        /* ---- SIDEBAR BOX ---- */
+        .sidebar-box { background-color: #000080; border: 2px solid #000033; margin-bottom: 10px; }
+        .sidebar-box-title {
+            background-color: #000033;
+            color: #ffcc00;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #3333aa;
+        }
+        .sidebar-box-body { padding: 6px; }
+        .sidebar-box-body a {
+            display: block;
+            color: #aaddff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            text-decoration: none;
+            padding: 3px 2px;
+            border-bottom: 1px dotted #3333aa;
+        }
+        .sidebar-box-body a:hover        { color: #ffcc00; text-decoration: underline; }
+        .sidebar-box-body a.active-link  { color: #ffcc00; font-weight: bold; }
+
+        .contact-box {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            color: #ccccff;
+            padding: 6px;
+            line-height: 1.7;
+        }
+
+        /* ---- PANEL ---- */
+        .panel {
+            background-color: #ffffff;
+            border: 2px inset #aaaaaa;
+            margin-bottom: 10px;
+        }
+        .panel-title {
+            background: linear-gradient(to right, #000080, #3333cc);
+            color: #ffcc00;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-bottom: 2px solid #ffcc00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .panel-title .panel-date {
+            font-size: 10px;
+            color: #aaddff;
+            font-family: "Courier New", Courier, monospace;
+            font-weight: normal;
+        }
+        .panel-body { padding: 10px 12px; }
+
+        /* ---- ACCOUNT CARDS ROW ---- */
+        .accounts-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 2px;
+        }
+
+        .acct-card {
+            flex: 1;
+            border: 2px outset #aaaaaa;
+            background-color: #eef2f8;
+        }
+        .acct-card-header {
+            background-color: #000080;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-bottom: 1px solid #000033;
+        }
+        .acct-card-body {
+            padding: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+        }
+        .acct-number {
+            color: #666666;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 10px;
+            margin-bottom: 4px;
+        }
+        .acct-balance {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 20px;
+            font-weight: bold;
+            color: #003300;
+            margin: 6px 0 2px 0;
+        }
+        .acct-balance.negative { color: #cc0000; }
+        .acct-avail {
+            font-size: 10px;
+            color: #555555;
+            margin-bottom: 6px;
+        }
+        .acct-link {
+            font-size: 10px;
+            color: #000080;
+            text-decoration: none;
+        }
+        .acct-link:hover { text-decoration: underline; }
+
+        /* ---- TRANSACTIONS TABLE ---- */
+        .tx-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .tx-table th {
+            background-color: #000080;
+            color: #ffcc00;
+            padding: 4px 8px;
+            text-align: left;
+            border: 1px solid #000033;
+        }
+        .tx-table td {
+            padding: 4px 8px;
+            border: 1px solid #cccccc;
+        }
+        .tx-table tr:nth-child(even) td { background-color: #eef2f8; }
+        .tx-table tr:nth-child(odd)  td { background-color: #f8faff; }
+        .tx-table td.amount-debit  { color: #cc0000; font-family: "Courier New", Courier, monospace; text-align: right; }
+        .tx-table td.amount-credit { color: #006600; font-family: "Courier New", Courier, monospace; text-align: right; }
+        .tx-table td.tx-date       { font-family: "Courier New", Courier, monospace; color: #555555; white-space: nowrap; }
+        .tx-table td.tx-balance    { font-family: "Courier New", Courier, monospace; text-align: right; color: #003300; }
+
+        .tx-footer {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            color: #555555;
+            text-align: right;
+            margin-top: 4px;
+        }
+        .tx-footer a { color: #000080; }
+
+        /* ---- MINI CHART (pure CSS/SVG bar chart) ---- */
+        .chart-title {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            color: #000080;
+            margin-bottom: 6px;
+        }
+
+        /* ---- ALERT BOX ---- */
+        .alert-box {
+            background-color: #fffff0;
+            border: 2px inset #cccc00;
+            padding: 6px 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+        .alert-box ul { margin: 4px 0 0 16px; padding: 0; }
+        .alert-box li { margin-bottom: 2px; }
+        .alert-box a  { color: #000080; }
+
+        /* ---- FOOTER ---- */
+        .footer {
+            background-color: #000033;
+            color: #aaaaaa;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            text-align: center;
+            padding: 8px;
+            border-top: 2px solid #000080;
+            margin-top: 14px;
+        }
+        .footer a { color: #aaddff; }
+
+        hr.fancy {
+            border: none;
+            border-top: 2px solid #000080;
+            border-bottom: 1px solid #aaaaff;
+            margin: 6px 0;
+        }
+
+        .blink { animation: blinker 1s step-start infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BANNER
+============================================================ -->
+<div class="top-banner">
+    <div class="banner-inner">
+        <div class="banner-logo-cell">
+            <svg width="40" height="40" viewBox="0 0 48 48" style="vertical-align:middle; margin-right:8px;"
+                 xmlns="http://www.w3.org/2000/svg">
+                <polygon points="24,2 46,14 46,46 2,46 2,14" fill="#000033" stroke="#ffcc00" stroke-width="2"/>
+                <rect x="8" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="16" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="24" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="32" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="6" y="20" width="36" height="3" fill="#ffcc00"/>
+                <polygon points="24,6 40,14 8,14" fill="#ffcc00"/>
+                <rect x="6" y="38" width="36" height="3" fill="#ffcc00"/>
+            </svg>
+            <span class="banner-title">First National Savings Bank</span>
+            <span class="banner-subtitle">Internet Banking &mdash; Account Summary</span>
+        </div>
+        <div class="banner-user-cell">
+            <div>Logged in as: <strong style="color:#ffcc00;">{{username}}</strong></div>
+            <div class="last-login">Last login: 11/03/1997 09:14:22 AM CT</div>
+            {{admin_button}}<a href="/logout" class="btn-logout">[ Sign Out ]</a>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     NAV BAR
+============================================================ -->
+<div class="navbar">
+    <a href="#" class="active">Account Summary</a>
+    <a href="#">Transfer Funds</a>
+    <a href="#">Bill Pay</a>
+    <a href="#">Statements</a>
+    <a href="#">Loans</a>
+    <a href="#">Investments</a>
+    <a href="#">Messages</a>
+    <a href="#">Settings</a>
+</div>
+
+<!-- ============================================================
+     PAGE WRAPPER
+============================================================ -->
+<div class="page-wrapper">
+
+    <div class="security-strip">
+        &#128274;&nbsp; Secure 128-bit SSL Session Active &nbsp;|&nbsp; Session expires in: <strong>29:47</strong>
+    </div>
+
+    <!-- Welcome bar -->
+    <div class="welcome-bar">
+    <span>
+      &#128100;&nbsp; Welcome back, <strong>{{username}}</strong>! &nbsp;
+      <span style="font-size:10px; color:#aaaacc;">Customer since: January 14, 1993</span>
+    </span>
+        <span class="last-login">11/03/1997 &mdash; Springfield, IL Branch</span>
+    </div>
+
+    <!-- Alerts -->
+    <div class="alert-box">
+        <strong>&#9888; Account Notices (2):</strong>
+        <ul>
+            <li>Your <a href="#">CD Account #4821-009</a> matures on <strong>12/15/1997</strong>. <a href="#">Renew or withdraw &raquo;</a></li>
+            <li>A new <a href="#">electronic statement</a> is available for October 1997. <a href="#">View now &raquo;</a></li>
+        </ul>
+    </div>
+
+    <table class="layout-table">
+        <tr>
+
+            <!-- ==================== SIDEBAR ==================== -->
+            <td class="sidebar">
+
+                <div class="sidebar-box">
+                    <div class="sidebar-box-title">&#187; My Accounts</div>
+                    <div class="sidebar-box-body">
+                        <a href="#" class="active-link">&#9654; Account Summary</a>
+                        <a href="#">Platinum Checking &#x2026;4471</a>
+                        <a href="#">Platinum Savings &#x2026;8823</a>
+                        <a href="#">CD Account &#x2026;4821</a>
+                        <a href="#">Money Market &#x2026;1107</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-box">
+                    <div class="sidebar-box-title">&#187; Quick Actions</div>
+                    <div class="sidebar-box-body">
+                        <a href="#">Transfer Funds</a>
+                        <a href="#">Pay a Bill</a>
+                        <a href="#">Order Checks</a>
+                        <a href="#">Download Statement</a>
+                        <a href="#">Change Password</a>
+                        <a href="#">Update Address</a>
+                        <a href="#">Report Lost Card</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-box">
+                    <div class="sidebar-box-title">&#187; Customer Service</div>
+                    <div class="contact-box">
+                        <strong style="color:#ffcc00;">1-800-555-FNSB</strong><br>
+                        Mon&ndash;Fri 8am&ndash;8pm CT<br>
+                        Sat 9am&ndash;3pm CT<br>
+                        <br>
+                        <a href="#" style="color:#aaddff;">Send Secure Message</a><br>
+                        <a href="#" style="color:#aaddff;">Find ATM / Branch</a>
+                    </div>
+                </div>
+
+            </td>
+
+            <!-- ==================== MAIN CONTENT ==================== -->
+            <td class="main-content">
+
+                <!-- Account Cards -->
+                <div class="panel">
+                    <div class="panel-title">
+                        My Accounts &mdash; Overview
+                        <span class="panel-date">As of: 11/03/1997 &nbsp;10:31 AM CT</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="accounts-row">
+
+                            <div class="acct-card">
+                                <div class="acct-card-header">&#128179; Platinum Checking</div>
+                                <div class="acct-card-body">
+                                    <div class="acct-number">Acct #: ***-****-4471 &nbsp;|&nbsp; Routing: 071000013</div>
+                                    <div class="acct-balance">$4,218.03</div>
+                                    <div class="acct-avail">Available Balance: <strong>$4,018.03</strong></div>
+                                    <a href="#" class="acct-link">View Transactions &raquo;</a> &nbsp;
+                                    <a href="#" class="acct-link">Transfer &raquo;</a>
+                                </div>
+                            </div>
+
+                            <div class="acct-card">
+                                <div class="acct-card-header">&#128200; Platinum Savings</div>
+                                <div class="acct-card-body">
+                                    <div class="acct-number">Acct #: ***-****-8823 &nbsp;|&nbsp; APY: 5.25%</div>
+                                    <div class="acct-balance">$12,745.61</div>
+                                    <div class="acct-avail">Interest YTD: <strong>+$621.14</strong></div>
+                                    <a href="#" class="acct-link">View Transactions &raquo;</a> &nbsp;
+                                    <a href="#" class="acct-link">Transfer &raquo;</a>
+                                </div>
+                            </div>
+
+                            <div class="acct-card">
+                                <div class="acct-card-header">&#128185; CD / Money Market</div>
+                                <div class="acct-card-body">
+                                    <div class="acct-number">CD #***-4821 &nbsp;5.50% APY &nbsp;Matures 12/15</div>
+                                    <div class="acct-balance">$5,500.00</div>
+                                    <div class="acct-avail">MMA #***-1107 Balance: <strong>$2,310.88</strong></div>
+                                    <a href="#" class="acct-link">CD Details &raquo;</a> &nbsp;
+                                    <a href="#" class="acct-link">Renew &raquo;</a>
+                                </div>
+                            </div>
+
+                        </div><!-- end .accounts-row -->
+
+                        <hr class="fancy">
+
+                        <!-- Total net worth strip -->
+                        <table style="width:100%; font-family:Arial; font-size:11px; margin-top:4px;">
+                            <tr>
+                                <td style="color:#555555;">Total Deposits:</td>
+                                <td style="font-family:'Courier New',monospace; color:#003300; font-weight:bold;">$24,774.52</td>
+                                <td style="width:30px;"></td>
+                                <td style="color:#555555;">Total Interest Earned (YTD):</td>
+                                <td style="font-family:'Courier New',monospace; color:#006600; font-weight:bold;">+$1,044.87</td>
+                                <td style="width:30px;"></td>
+                                <td style="color:#555555;">Outstanding Loan Balance:</td>
+                                <td style="font-family:'Courier New',monospace; color:#cc0000; font-weight:bold;">-$87,432.10</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="panel">
+                    <div class="panel-title">
+                        Recent Transactions &mdash; Platinum Checking (&#x2026;4471)
+                        <span class="panel-date">Last 10 transactions</span>
+                    </div>
+                    <div class="panel-body">
+                        <table class="tx-table">
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th style="text-align:right;">Amount</th>
+                                <th style="text-align:right;">Balance</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="tx-date">11/03/1997</td>
+                                <td>JEWEL OSCO #0442 SPRINGFIELD IL</td>
+                                <td>POS Debit</td>
+                                <td class="amount-debit">-$47.31</td>
+                                <td class="tx-balance">$4,218.03</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">11/01/1997</td>
+                                <td>DIRECT DEPOSIT — ACME CORP PAYROLL</td>
+                                <td>ACH Credit</td>
+                                <td class="amount-credit">+$1,842.50</td>
+                                <td class="tx-balance">$4,265.34</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/31/1997</td>
+                                <td>AMERITECH ILLINOIS — UTILITY PMT</td>
+                                <td>Bill Pay</td>
+                                <td class="amount-debit">-$68.14</td>
+                                <td class="tx-balance">$2,422.84</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/31/1997</td>
+                                <td>ATM WITHDRAWAL — FNSB MAIN ST</td>
+                                <td>ATM</td>
+                                <td class="amount-debit">-$100.00</td>
+                                <td class="tx-balance">$2,490.98</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/29/1997</td>
+                                <td>CITIZENS GAS &amp; COKE UTILITY</td>
+                                <td>Bill Pay</td>
+                                <td class="amount-debit">-$54.22</td>
+                                <td class="tx-balance">$2,590.98</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/28/1997</td>
+                                <td>SPRINGFIELD MALL — SEARS</td>
+                                <td>POS Debit</td>
+                                <td class="amount-debit">-$132.47</td>
+                                <td class="tx-balance">$2,645.20</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/27/1997</td>
+                                <td>TRANSFER FROM SAVINGS &#x2026;8823</td>
+                                <td>Transfer</td>
+                                <td class="amount-credit">+$500.00</td>
+                                <td class="tx-balance">$2,777.67</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/25/1997</td>
+                                <td>SHELL OIL #7712 SPRINGFIELD IL</td>
+                                <td>POS Debit</td>
+                                <td class="amount-debit">-$22.15</td>
+                                <td class="tx-balance">$2,277.67</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/24/1997</td>
+                                <td>FNSB MORTGAGE PAYMENT — LOAN #28811</td>
+                                <td>Loan Pmt</td>
+                                <td class="amount-debit">-$714.00</td>
+                                <td class="tx-balance">$2,299.82</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-date">10/22/1997</td>
+                                <td>KROGER #0193 SPRINGFIELD IL</td>
+                                <td>POS Debit</td>
+                                <td class="amount-debit">-$89.63</td>
+                                <td class="tx-balance">$3,013.82</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="tx-footer">
+                            <a href="#">View all transactions &raquo;</a> &nbsp;|&nbsp;
+                            <a href="#">Download as CSV &raquo;</a> &nbsp;|&nbsp;
+                            <a href="#">Print statement &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Savings chart + loan summary side by side -->
+                <table style="width:100%; border-collapse:collapse;">
+                    <tr>
+
+                        <!-- Savings balance bar chart -->
+                        <td style="width:55%; vertical-align:top; padding-right:8px;">
+                            <div class="panel">
+                                <div class="panel-title">Monthly Savings Balance &mdash; 1997</div>
+                                <div class="panel-body">
+                                    <div class="chart-title">Platinum Savings Acct &#x2026;8823 (USD)</div>
+                                    <svg width="100%" height="130" viewBox="0 0 380 130"
+                                         xmlns="http://www.w3.org/2000/svg" style="display:block;">
+                                        <!-- Grid lines -->
+                                        <line x1="38" y1="10"  x2="375" y2="10"  stroke="#cccccc" stroke-width="0.5" stroke-dasharray="3,3"/>
+                                        <line x1="38" y1="35"  x2="375" y2="35"  stroke="#cccccc" stroke-width="0.5" stroke-dasharray="3,3"/>
+                                        <line x1="38" y1="60"  x2="375" y2="60"  stroke="#cccccc" stroke-width="0.5" stroke-dasharray="3,3"/>
+                                        <line x1="38" y1="85"  x2="375" y2="85"  stroke="#cccccc" stroke-width="0.5" stroke-dasharray="3,3"/>
+                                        <line x1="38" y1="110" x2="375" y2="110" stroke="#aaaaaa" stroke-width="1"/>
+                                        <!-- Y-axis labels -->
+                                        <text x="34" y="14"  text-anchor="end" font-size="8" font-family="Courier New" fill="#555555">$14k</text>
+                                        <text x="34" y="39"  text-anchor="end" font-size="8" font-family="Courier New" fill="#555555">$12k</text>
+                                        <text x="34" y="64"  text-anchor="end" font-size="8" font-family="Courier New" fill="#555555">$10k</text>
+                                        <text x="34" y="89"  text-anchor="end" font-size="8" font-family="Courier New" fill="#555555">$8k</text>
+                                        <text x="34" y="114" text-anchor="end" font-size="8" font-family="Courier New" fill="#555555">$6k</text>
+                                        <!-- Bars: Jan–Nov. Heights scaled: $6k=0px at y=110, $14k=100px -->
+                                        <!-- Jan $8,100 → h=26  -->
+                                        <rect x="42"  y="84"  width="24" height="26" fill="#000080"/>
+                                        <!-- Feb $8,400 → h=30 -->
+                                        <rect x="72"  y="80"  width="24" height="30" fill="#000080"/>
+                                        <!-- Mar $9,100 → h=39 -->
+                                        <rect x="102" y="71"  width="24" height="39" fill="#000080"/>
+                                        <!-- Apr $9,800 → h=47 -->
+                                        <rect x="132" y="63"  width="24" height="47" fill="#000080"/>
+                                        <!-- May $10,200 → h=52 -->
+                                        <rect x="162" y="58"  width="24" height="52" fill="#000080"/>
+                                        <!-- Jun $10,900 → h=61 -->
+                                        <rect x="192" y="49"  width="24" height="61" fill="#000080"/>
+                                        <!-- Jul $11,400 → h=67 -->
+                                        <rect x="222" y="43"  width="24" height="67" fill="#000080"/>
+                                        <!-- Aug $11,800 → h=72 -->
+                                        <rect x="252" y="38"  width="24" height="72" fill="#000080"/>
+                                        <!-- Sep $12,100 → h=76 -->
+                                        <rect x="282" y="34"  width="24" height="76" fill="#3333aa"/>
+                                        <!-- Oct $12,400 → h=80 -->
+                                        <rect x="312" y="30"  width="24" height="80" fill="#3333aa"/>
+                                        <!-- Nov $12,745 → h=84 -->
+                                        <rect x="342" y="26"  width="24" height="84" fill="#ffcc00"/>
+                                        <!-- Month labels -->
+                                        <text x="54"  y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Jan</text>
+                                        <text x="84"  y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Feb</text>
+                                        <text x="114" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Mar</text>
+                                        <text x="144" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Apr</text>
+                                        <text x="174" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">May</text>
+                                        <text x="204" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Jun</text>
+                                        <text x="234" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Jul</text>
+                                        <text x="264" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Aug</text>
+                                        <text x="294" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Sep</text>
+                                        <text x="324" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#333333">Oct</text>
+                                        <text x="354" y="122" text-anchor="middle" font-size="8" font-family="Arial" fill="#555555" font-weight="bold">Nov</text>
+                                    </svg>
+                                    <div style="font-size:9px; font-family:Arial; color:#888888; margin-top:2px;">
+                                        &#9646; Prior months &nbsp; <span style="color:#ffcc00;">&#9646;</span> Current month
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <!-- Loan summary -->
+                        <td style="width:45%; vertical-align:top;">
+                            <div class="panel">
+                                <div class="panel-title">Loans &amp; Credit</div>
+                                <div class="panel-body">
+                                    <table style="width:100%; font-size:11px; font-family:Arial; border-collapse:collapse;">
+                                        <tr style="background:#eef2f8;">
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-weight:bold;">30-yr Mortgage</td>
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-family:'Courier New',monospace; color:#cc0000; text-align:right;">$87,432.10</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px 6px; border:1px solid #cccccc; font-size:10px; color:#666666;" colspan="2">
+                                                Rate: 7.875% &nbsp;|&nbsp; Pmt: $714.00/mo &nbsp;|&nbsp; Payoff: Aug 2024
+                                            </td>
+                                        </tr>
+                                        <tr style="background:#eef2f8;">
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-weight:bold;">Auto Loan</td>
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-family:'Courier New',monospace; color:#cc0000; text-align:right;">$11,204.55</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px 6px; border:1px solid #cccccc; font-size:10px; color:#666666;" colspan="2">
+                                                Rate: 9.25% &nbsp;|&nbsp; Pmt: $312.50/mo &nbsp;|&nbsp; Payoff: Mar 2001
+                                            </td>
+                                        </tr>
+                                        <tr style="background:#eef2f8;">
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-weight:bold;">FNSB Visa Credit Card</td>
+                                            <td style="padding:4px 6px; border:1px solid #cccccc; font-family:'Courier New',monospace; color:#000080; text-align:right;">$1,847.22</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px 6px; border:1px solid #cccccc; font-size:10px; color:#666666;" colspan="2">
+                                                Limit: $8,000 &nbsp;|&nbsp; APR: 16.9% &nbsp;|&nbsp; Min due: $37.00 by 11/22
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <hr class="fancy" style="margin:8px 0;">
+                                    <div style="font-family:Arial; font-size:10px; color:#555555;">
+                                        <a href="#" style="color:#000080;">Apply for Home Equity Line &raquo;</a><br>
+                                        <a href="#" style="color:#000080;">Request Credit Limit Increase &raquo;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Footer -->
+    <div class="footer">
+        <hr class="fancy">
+        <strong>First National Savings Bank</strong> &nbsp;|&nbsp;
+        1 Commerce Plaza, Springfield, IL 62701 &nbsp;|&nbsp;
+        1-800-555-FNSB &nbsp;|&nbsp;
+        <a href="#">Privacy Policy</a> &nbsp;|&nbsp;
+        <a href="#">Security Center</a> &nbsp;|&nbsp;
+        <a href="/logout">Sign Out</a>
+        <br><br>
+        &copy; 1997 First National Savings Bank. All rights reserved.
+        Member <strong>FDIC</strong>. Equal Housing Lender. Deposits insured up to $100,000.
+        <br>
+        <span style="font-size:9px; color:#666666;">
+      This is a secure, private session. Do not leave your computer unattended while logged in.
+      &nbsp;|&nbsp; Session ID: A3F7-992C-1B44
+    </span>
+    </div>
+
+</div><!-- end .page-wrapper -->
+
+</body>
+>>>>>>> 7b6cf6203fde385d45d38164c32d588b687b19f0
+</html>

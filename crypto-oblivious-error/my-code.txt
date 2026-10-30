@@ -1,0 +1,11 @@
+while True:
+    try:
+        print("Please pick a value k.")
+        k = int(input())
+        break
+    except ValueError:
+        print("Invalid value. Please pick an integer.")
+        print("Please pick a value k.")
+        k = int(input())
+
+v = (x0 + (int(k) ^ e)) % N

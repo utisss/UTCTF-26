@@ -1,0 +1,16 @@
+name: "QRecreate"
+category: Misc
+description: |
+  I managed to bypass the IPS to exfiltrate the secrets you wanted from the target's intranet. I just hope you remember the encoding structure we agreed on.
+  by Emmett (@emdawg25 on discord)
+author: Emmett
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{s3cr3ts_@re_@lw@ys_w1th1n_s3cr3ts}
+files:
+  - TaxReports2008.zip

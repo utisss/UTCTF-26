@@ -1,0 +1,27 @@
+services:
+  pwn-poker-small-blind:
+    build:
+      context: .
+      args:
+        FLAG: "utflag{counting_chars_not_cards}"
+        USER: "poker"
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: 1g
+        max-file: "1"
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 4G
+    healthcheck:
+      test: ["CMD-SHELL", "echo | socat - TCP:localhost:9000,connect-timeout=2"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    ports:
+      - 7255:9000
+    read_only: true

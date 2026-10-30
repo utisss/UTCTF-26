@@ -1,0 +1,21 @@
+name: "Oblivious Error"
+category: Cryptography
+description: |
+  My friend made an RSA-based 1-2 oblivious transfer protocol program. I don't know what that means but I need to know quick because I accidentally deleted his code!
+  I replaced the part I deleted with the following code in the text file below, but now one of the messages is undecodable and I don't know why!
+
+  Can you decode the lost message?
+
+  By Joel (@jayscx on discord)
+author: Joel
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+connection_info: nc challenge.utctf.live 8379
+flags:
+  - utflag{my_obl1v10u5_fr13nd_ru1n3d_my_c0de}
+files:
+  - my-code.txt

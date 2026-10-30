@@ -1,0 +1,11 @@
+Welcome back agent. Please get us the following:
+
+Checkpoint A: The threat actor deleted a word document containing secret 
+project information. Can you retrieve it and submit the name of the project?
+
+Checkpoint B: The threat actor installed a suspicious looking program that 
+may or may not be benign. Retrieve the SHA1 Hash of the executable.
+
+Hint: 
+- Checkpoint A's password is strictly uppercase
+- Checkpoint B's password is the SHA1 Hash

@@ -1,0 +1,15 @@
+name: "Break the Bank"
+category: Web
+description: |
+  Let's just say that this bank isn't exactly following the latest trends in web design (or web security, for that matter). Just take a look at that website! 
+  by Emmett (@emdawg25 on discord)
+author: Emmett
+value: 0
+type: dynamic
+connection_info: challenge.utctf.live:5926
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{s0m3_c00k1es_@re_t@st13r_th@n_0th3rs}

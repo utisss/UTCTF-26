@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin
+Disallow: /2065467898
+Disallow: /3037802467

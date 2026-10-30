@@ -1,0 +1,20 @@
+name: "Silent Archive"
+category: Forensics
+description: |
+  Incident response recovered a damaged archive from an isolated workstation.
+  The bundle split into two branches during transfer:
+  one looks like duplicate camera captures, and the other is an absurdly deep
+  archive chain.
+
+  Follow both trails, reconstruct the hidden message, and recover the token.
+author: Abhi
+value: 0
+type: dynamic
+extra:
+  initial: 1000
+  decay: 300
+  minimum: 100
+flags:
+  - utflag{d1ff_th3_tw1ns_unt4r_th3_st0rm_r34d_th3_wh1t3sp4c3}
+files:
+  - freem4.zip

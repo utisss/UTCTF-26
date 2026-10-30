@@ -1,0 +1,23 @@
+services:
+  web-break-the-bank:
+    build:
+      context: ./web
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: 1g
+        max-file: "1"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 2G
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:5926"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    ports:
+      - 5926:5926

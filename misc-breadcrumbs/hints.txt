@@ -1,0 +1,18 @@
+Hint 1 (Gist 1)
+- The link in the challenge description leads to a GitHub Gist
+- Look at everything on the page carefully
+- Try pasting any suspicious strings into a Base64 decoder
+
+HINT 2 (Gist 2)
+- Visit the URL you decoded from step 1
+- Pay attention to the very first letter of each line
+- Also scroll all the way to the bottom of the page
+
+HINT 3 (Gist 3)
+- The Python script on this gist is a decoy
+- One comment contains a string of only numbers and the letters a-f
+- That is a hex string
+
+HINT 4 (Gist 4)
+- The string on this page looks like gibberish but follows a pattern
+- This is rot13

@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="description" content="First National Savings Bank - Secure Login">
+    <title>First National Savings Bank - Secure Login</title>
+    <style type="text/css">
+
+        body {
+            background-color: #c0c0c0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23c0c0c0'/%3E%3Crect width='1' height='1' fill='%23b0b0b0' opacity='0.4'/%3E%3C/svg%3E");
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12px;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ---- TOP BANNER (same as index) ---- */
+        .top-banner {
+            width: 100%;
+            background-color: #000080;
+            border-bottom: 3px solid #ffcc00;
+            padding: 0;
+        }
+        .banner-inner {
+            display: table;
+            width: 100%;
+        }
+        .banner-logo-cell {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 6px 12px;
+        }
+        .banner-title {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffcc00;
+            vertical-align: middle;
+            letter-spacing: 1px;
+        }
+        .banner-subtitle {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #aaddff;
+            display: block;
+            margin-top: 2px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .banner-back-cell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+            padding: 6px 12px;
+        }
+        .btn-back {
+            background-color: #333388;
+            color: #aaddff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            border: 2px outset #5555aa;
+            padding: 4px 12px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-back:hover { background-color: #4444aa; border-style: inset; }
+
+        /* ---- PAGE WRAPPER ---- */
+        .page-wrapper {
+            width: 460px;
+            margin: 36px auto 0 auto;
+        }
+
+        /* ---- SECURITY STRIP ---- */
+        .security-strip {
+            background-color: #006600;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            text-align: center;
+            padding: 3px 6px;
+            border: 1px solid #004400;
+            margin-bottom: 10px;
+        }
+
+        /* ---- LOGIN WINDOW (classic dialog box look) ---- */
+        .login-window {
+            border: 2px outset #ffffff;
+            background-color: #d4d0c8;
+            box-shadow: 3px 3px 0px #808080;
+        }
+
+        /* Window title bar */
+        .window-titlebar {
+            background: linear-gradient(to right, #000080, #1084d0);
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+        .titlebar-left {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .titlebar-buttons {
+            display: flex;
+            gap: 2px;
+        }
+        .titlebar-btn {
+            width: 14px;
+            height: 14px;
+            background-color: #d4d0c8;
+            border: 1px outset #ffffff;
+            font-size: 9px;
+            font-family: Arial;
+            font-weight: bold;
+            color: #000000;
+            text-align: center;
+            line-height: 12px;
+            cursor: default;
+        }
+
+        /* Window body */
+        .window-body {
+            padding: 16px 20px 14px 20px;
+            border-top: 1px solid #808080;
+        }
+
+        /* Bank logo area inside window */
+        .login-header {
+            text-align: center;
+            border-bottom: 2px solid #808080;
+            padding-bottom: 12px;
+            margin-bottom: 14px;
+        }
+        .login-bank-name {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 17px;
+            font-weight: bold;
+            color: #000080;
+            display: block;
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+        .login-tagline {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            color: #555555;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        /* Form fields */
+        .field-row {
+            margin-bottom: 10px;
+        }
+        .field-label {
+            display: block;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 3px;
+        }
+        .field-input {
+            width: 100%;
+            box-sizing: border-box;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 12px;
+            padding: 3px 5px;
+            border: 2px inset #aaaaaa;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .field-input:focus {
+            outline: 1px dotted #000080;
+            background-color: #f0f4ff;
+        }
+
+        /* Divider */
+        hr.win-divider {
+            border: none;
+            border-top: 1px solid #808080;
+            border-bottom: 1px solid #ffffff;
+            margin: 14px 0;
+        }
+
+        /* Button row */
+        .btn-row {
+            display: flex;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-top: 4px;
+        }
+        .btn-primary {
+            background-color: #d4d0c8;
+            color: #000000;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px outset #ffffff;
+            padding: 4px 20px;
+            cursor: pointer;
+            min-width: 80px;
+            letter-spacing: 0.5px;
+        }
+        .btn-primary:hover   { background-color: #e0dcd4; }
+        .btn-primary:active  { border-style: inset; }
+        .btn-secondary {
+            background-color: #d4d0c8;
+            color: #000000;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            border: 2px outset #ffffff;
+            padding: 4px 20px;
+            cursor: pointer;
+            min-width: 80px;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+        .btn-secondary:hover  { background-color: #e0dcd4; }
+        .btn-secondary:active { border-style: inset; }
+
+        /* Status / message bar */
+        .status-bar {
+            background-color: #d4d0c8;
+            border-top: 1px solid #808080;
+            padding: 2px 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            color: #444444;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .status-light {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #00cc00;
+            border: 1px solid #006600;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        /* Message box (error / success) */
+        .msg-box {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            padding: 5px 8px;
+            margin-bottom: 10px;
+            border: 1px solid;
+            display: none;
+        }
+        .msg-box.error   { background-color: #fff0f0; border-color: #cc0000; color: #cc0000; }
+        .msg-box.success { background-color: #f0fff0; border-color: #006600; color: #005500; }
+
+        /* Loading indicator */
+        .loading-text {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 11px;
+            color: #000080;
+            text-align: center;
+            display: none;
+            margin-top: 6px;
+        }
+
+        /* Footer note */
+        .login-footer {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            color: #555555;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+        .login-footer a { color: #000080; }
+
+        .blink { animation: blinker 1s step-start infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+    </style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BANNER
+============================================================ -->
+<div class="top-banner">
+    <div class="banner-inner">
+        <div class="banner-logo-cell">
+            <svg width="36" height="36" viewBox="0 0 48 48" style="vertical-align:middle; margin-right:8px;"
+                 xmlns="http://www.w3.org/2000/svg">
+                <polygon points="24,2 46,14 46,46 2,46 2,14" fill="#000033" stroke="#ffcc00" stroke-width="2"/>
+                <rect x="8" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="16" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="24" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="32" y="22" width="4" height="16" fill="#ffcc00"/>
+                <rect x="6" y="20" width="36" height="3" fill="#ffcc00"/>
+                <polygon points="24,6 40,14 8,14" fill="#ffcc00"/>
+                <rect x="6" y="38" width="36" height="3" fill="#ffcc00"/>
+            </svg>
+            <span class="banner-title">First National Savings Bank</span>
+            <span class="banner-subtitle">Secure Internet Banking Portal</span>
+        </div>
+        <div class="banner-back-cell">
+            <a href="/" class="btn-back">&laquo; Back to Main Site</a>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     PAGE WRAPPER
+============================================================ -->
+<div class="page-wrapper">
+
+    <div class="security-strip">
+        &#128274;&nbsp; 128-bit SSL Encryption Active &nbsp;|&nbsp;
+        Verify the padlock icon in your browser's address bar before entering your credentials.
+    </div>
+
+    <!-- ============================================================
+         LOGIN WINDOW (styled as a Windows 95/98 dialog)
+    ============================================================ -->
+    <div class="login-window">
+
+        <!-- Title bar -->
+        <div class="window-titlebar">
+            <div class="titlebar-left">
+                <!-- tiny lock icon -->
+                <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="6" width="10" height="7" rx="1" fill="#ffcc00"/>
+                    <path d="M4 6 V4 a3 3 0 0 1 6 0 V6" fill="none" stroke="#ffcc00" stroke-width="1.5"/>
+                    <circle cx="7" cy="9.5" r="1" fill="#000080"/>
+                </svg>
+                FNSB Internet Banking — Secure Sign In
+            </div>
+            <div class="titlebar-buttons">
+                <div class="titlebar-btn">_</div>
+                <div class="titlebar-btn">&#9633;</div>
+                <div class="titlebar-btn">&#10005;</div>
+            </div>
+        </div>
+
+        <!-- Window body -->
+        <div class="window-body">
+
+            <!-- Bank header inside window -->
+            <div class="login-header">
+                <svg width="44" height="44" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="24,2 46,14 46,46 2,46 2,14" fill="#000066" stroke="#ffcc00" stroke-width="2"/>
+                    <rect x="8" y="22" width="4" height="16" fill="#ffcc00"/>
+                    <rect x="16" y="22" width="4" height="16" fill="#ffcc00"/>
+                    <rect x="24" y="22" width="4" height="16" fill="#ffcc00"/>
+                    <rect x="32" y="22" width="4" height="16" fill="#ffcc00"/>
+                    <rect x="6" y="20" width="36" height="3" fill="#ffcc00"/>
+                    <polygon points="24,6 40,14 8,14" fill="#ffcc00"/>
+                    <rect x="6" y="38" width="36" height="3" fill="#ffcc00"/>
+                </svg>
+                <span class="login-bank-name">First National Savings Bank</span>
+                <div class="login-tagline">Internet Banking Portal &mdash; Est. 1887</div>
+            </div>
+
+            <!-- Message box (shown on error/success via JS) -->
+            <div class="msg-box error"   id="msg-error"></div>
+            <div class="msg-box success" id="msg-success"></div>
+
+            <!-- Fields -->
+            <div class="field-row">
+                <label class="field-label" for="username">Customer ID / Username:</label>
+                <input class="field-input" type="text" id="username" name="username"
+                       maxlength="32" autocomplete="off" spellcheck="false">
+            </div>
+
+            <div class="field-row">
+                <label class="field-label" for="password">Password:</label>
+                <input class="field-input" type="password" id="password" name="password"
+                       maxlength="64" autocomplete="off">
+            </div>
+
+            <div style="font-family:Arial; font-size:10px; color:#555555; margin-bottom:8px;">
+                <input type="checkbox" id="remember" style="vertical-align:middle; margin-right:3px;">
+                <label for="remember" style="cursor:pointer;">Remember my Customer ID on this computer</label>
+            </div>
+
+            <hr class="win-divider">
+
+            <div class="loading-text" id="loading-text">
+                <span class="blink">&#9608;</span> Contacting secure server... please wait...
+            </div>
+
+            <div class="btn-row">
+                <a href="/" class="btn-secondary">Cancel</a>
+                <button class="btn-primary" id="login-btn" onclick="doLogin()">Sign In</button>
+            </div>
+
+        </div><!-- end .window-body -->
+
+        <!-- Status bar at bottom of dialog -->
+        <div class="status-bar">
+            <span class="status-light"></span>
+            <span id="status-text">Ready &mdash; SSL Secured Connection</span>
+        </div>
+
+    </div><!-- end .login-window -->
+
+    <!-- Footer links -->
+    <div class="login-footer">
+        <a href="#">Forgot Password?</a> &nbsp;|&nbsp;
+        <a href="#">First-Time Registration</a> &nbsp;|&nbsp;
+        <a href="#">Security Information</a>
+        <br><br>
+        Having trouble? Call us at <strong>(217) 555-0100</strong>, Mon&ndash;Fri 8am&ndash;6pm CT.
+        <br>
+        &copy; 1997 First National Savings Bank. Member FDIC. &nbsp;
+        <a href="#">Privacy Policy</a>
+    </div>
+
+</div><!-- end .page-wrapper -->
+
+<script type="text/javascript">
+
+    // Allow Enter key to submit
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") doLogin();
+    });
+
+    function setStatus(msg) {
+        document.getElementById("status-text").innerText = msg;
+    }
+
+    function showError(msg) {
+        var el = document.getElementById("msg-error");
+        el.innerText = "\u26A0 " + msg;
+        el.style.display = "block";
+        document.getElementById("msg-success").style.display = "none";
+    }
+
+    function showSuccess(msg) {
+        var el = document.getElementById("msg-success");
+        el.innerText = "\u2713 " + msg;
+        el.style.display = "block";
+        document.getElementById("msg-error").style.display = "none";
+    }
+
+    function doLogin() {
+        var username = document.getElementById("username").value.trim();
+        var password = document.getElementById("password").value;
+
+        // Basic client-side validation
+        if (!username || !password) {
+            showError("Please enter both your Customer ID and password.");
+            setStatus("Error \u2014 fields required");
+            return;
+        }
+
+        // Disable button and show loading state
+        var btn = document.getElementById("login-btn");
+        btn.disabled = true;
+        btn.innerText = "Signing In...";
+        document.getElementById("loading-text").style.display = "block";
+        document.getElementById("msg-error").style.display   = "none";
+        document.getElementById("msg-success").style.display = "none";
+        setStatus("Connecting to secure server...");
+
+        // POST to /login with JSON body
+        fetch("/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username: username, password: password })
+        })
+            .then(function(response) {
+                return response.json().then(function(data) {
+                    return { status: response.status, body: data };
+                });
+            })
+            .then(function(result) {
+                document.getElementById("loading-text").style.display = "none";
+                btn.disabled  = false;
+                btn.innerText = "Sign In";
+
+                if (result.status === 200 && result.body.token) {
+                    // Token is also stored in an HttpOnly cookie by the server;
+                    // keep a copy in sessionStorage for any client-side needs.
+                    sessionStorage.setItem("fnsb_token", result.body.token);
+                    showSuccess("Login successful! Redirecting to your account...");
+                    setStatus("Authenticated \u2014 redirecting...");
+                    var dest = (result.body.redirect) ? result.body.redirect : "/";
+                    setTimeout(function() {
+                        window.location.href = dest;
+                    }, 1500);
+                } else {
+                    var errMsg = (result.body && result.body.error)
+                        ? result.body.error
+                        : "An unexpected error occurred. Please try again.";
+                    showError(errMsg);
+                    setStatus("Authentication failed");
+                }
+            })
+            .catch(function(err) {
+                document.getElementById("loading-text").style.display = "none";
+                btn.disabled  = false;
+                btn.innerText = "Sign In";
+                showError("Could not reach the server. Please check your connection and try again.");
+                setStatus("Connection error");
+            });
+    }
+
+</script>
+
+</body>
+</html>

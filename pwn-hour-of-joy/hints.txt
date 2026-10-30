@@ -1,0 +1,23 @@
+HINT 1
+- Download and run the binary: chmod +x vuln then ./vuln
+- It asks for your name and prints it back — try entering different things
+- Try entering %x as your name and see what happens
+ 
+HINT 2
+- When %x prints hex values, that means the binary is vulnerable to a format string attack
+- This happens when printf is called without a format string: printf(name) instead of printf("%s", name)
+- Google "format string vulnerability CTF" to learn more
+ 
+HINT 3
+- You can read specific values off the stack using %N$lx where N is a number
+- Try %1$lx, %2$lx, %3$lx... and look for something that looks like a known value
+- Keep going until you see something suspicious in the output
+ 
+HINT 4
+- The secret value is at offset 17 — try sending %17$lx
+- You will see a value starting with deadbeef in the output
+- That first part (deadbeef) is the secret you need
+ 
+HINT 5
+- 0xdeadbeef in decimal is 3735928559
+- Run the program again, enter anything as your name, then enter 3735928559 as the secret code
